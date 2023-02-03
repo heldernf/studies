@@ -1,0 +1,19 @@
+body {
+		background:yellow
+		}
+		
+		p{
+		font-size:35px;
+		}
+		
+		.parágrafo2{
+		color:orangered;
+		}
+		
+		.parágrafo2{
+		font-size:50px;
+		}
+		
+		#paragrafo1{
+			background:white; color:blue
+		}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mq.css">
+</head>
+
+<body onresize="mudouTamanho()">
+    <header>
+        <h1>Meu Site</h1>
+        <span id="nav-icon" class="material-icons" onclick="clickMenu()">menu</span>
+        <nav id="nav">
+            <ul>
+                <li>
+                    <a href="#">OPÇÃO 1</a>
+                </li>
+                <li>
+                    <a href="">OPÇÃO 2</a>
+                </li>
+                <li>
+                    <a href="">OPÇÃO 3</a>
+                </li>
+                <li>
+                    <a href="">OPÇÃO 4</a>
+                </li>
+                <li>
+                    <a href="">OPÇÃO 8</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2>Teste Teste Teste Teste Teste</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi doloremque quia magni sed hic,
+                dignissimos nisi quibusdam inventore nesciunt et facere earum voluptatibus accusantium ducimus omnis
+                alias cumque repellat vitae.
+                Adipisci cumque saepe est quasi, maiores vel sequi ex, quae ratione ea veniam? Quis, laudantium
+                explicabo officiis aspernatur sunt minus accusamus, recusandae modi ducimus blanditiis impedit! Neque
+                alias officia veniam!
+                Commodi quos ipsa laudantium ullam similique aperiam dolorum labore ea voluptas eum neque amet,
+                accusamus dignissimos doloribus cupiditate possimus sapiente unde dolores rem nam. Fuga repellendus
+                temporibus accusantium sed excepturi.
+                Minus sequi, consequuntur, obcaecati mollitia ducimus exercitationem earum officiis, accusamus veritatis
+                eligendi inventore. Dolore ipsam porro molestiae optio voluptatum corporis, eum illo. Possimus
+                laboriosam inventore accusamus, enim nobis maiores voluptatibus.
+                Dolorem, officiis cum. Recusandae perspiciatis aspernatur repellendus ratione eligendi harum repudiandae
+                deleniti aperiam dolore maxime dolores officiis in nobis nemo, expedita consequatur doloremque nihil
+                quidem? Doloremque sed odio soluta dolorem.
+            </p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi doloremque quia magni sed hic,
+                dignissimos nisi quibusdam inventore nesciunt et facere earum voluptatibus accusantium ducimus omnis
+                alias cumque repellat vitae.
+                Adipisci cumque saepe est quasi, maiores vel sequi ex, quae ratione ea veniam? Quis, laudantium
+                explicabo officiis aspernatur sunt minus accusamus, recusandae modi ducimus blanditiis impedit! Neque
+                alias officia veniam!
+                Commodi quos ipsa laudantium ullam similique aperiam dolorum labore ea voluptas eum neque amet,
+                accusamus dignissimos doloribus cupiditate possimus sapiente unde dolores rem nam. Fuga repellendus
+                temporibus accusantium sed excepturi.
+                Minus sequi, consequuntur, obcaecati mollitia ducimus exercitationem earum officiis, accusamus veritatis
+                eligendi inventore. Dolore ipsam porro molestiae optio voluptatum corporis, eum illo. Possimus
+                laboriosam inventore accusamus, enim nobis maiores voluptatibus.
+                Dolorem, officiis cum. Recusandae perspiciatis aspernatur repellendus ratione eligendi harum repudiandae
+                deleniti aperiam dolore maxime dolores officiis in nobis nemo, expedita consequatur doloremque nihil
+                quidem? Doloremque sed odio soluta dolorem.
+            </p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi doloremque quia magni sed hic,
+                dignissimos nisi quibusdam inventore nesciunt et facere earum voluptatibus accusantium ducimus omnis
+                alias cumque repellat vitae.
+                Adipisci cumque saepe est quasi, maiores vel sequi ex, quae ratione ea veniam? Quis, laudantium
+                explicabo officiis aspernatur sunt minus accusamus, recusandae modi ducimus blanditiis impedit! Neque
+                alias officia veniam!
+                Commodi quos ipsa laudantium ullam similique aperiam dolorum labore ea voluptas eum neque amet,
+                accusamus dignissimos doloribus cupiditate possimus sapiente unde dolores rem nam. Fuga repellendus
+                temporibus accusantium sed excepturi.
+                Minus sequi, consequuntur, obcaecati mollitia ducimus exercitationem earum officiis, accusamus veritatis
+                eligendi inventore. Dolore ipsam porro molestiae optio voluptatum corporis, eum illo. Possimus
+                laboriosam inventore accusamus, enim nobis maiores voluptatibus.
+                Dolorem, officiis cum. Recusandae perspiciatis aspernatur repellendus ratione eligendi harum repudiandae
+                deleniti aperiam dolore maxime dolores officiis in nobis nemo, expedita consequatur doloremque nihil
+                quidem? Doloremque sed odio soluta dolorem.
+            </p>
+        </article>
+    </main>
+    <script>
+        function mudouTamanho() {
+            if (window.innerWidth >= 768) {
+                nav.style.display = 'block'
+            } else {
+                nav.style.display = 'none'
+            }
+        }
+
+        function clickMenu() {
+            if (nav.style.display == 'block') {
+                nav.style.display = 'none'
+            } else {
+                nav.style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

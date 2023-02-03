@@ -1,0 +1,72 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0px 0px 170px 12px rgba(0, 0, 0, 0.590);
+}
+
+main {
+    height: 100vh;
+    position: relative;
+}
+
+#telefone {
+    width: 306px;
+    height: 622px;
+    position: absolute;
+    top: 50%; /* para centralizar ao meio; */
+    left: 50%; /* para centralizar ao meio; */
+    transform: translate(-50%, -50%); /* para centralizar ao meio; */
+    background-image: url(../imagens/frame-iphone.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+#tela {
+    position: relative;
+    left: 20px;
+    top: 78px;
+    width: 266px;
+    height: 471px;
+}
+
+#social {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    row-gap: 30px;
+}
+
+#social a {
+    background-color: blue;
+    width: 60px;
+    margin-right: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#social img {
+    width: 60px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+#social img:hover {
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.150);
+    transition: 0.2s;
+    width: 65px;
+}

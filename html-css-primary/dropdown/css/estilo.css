@@ -1,0 +1,54 @@
+h1 {
+    color: rgb(0, 0, 0);
+    font-size: 45px;
+    text-align: center;
+    margin-top: 1%;
+}
+
+ul {
+    background-color: rgb(34, 34, 34);
+    list-style-type: none;
+    padding: 0%;
+    margin: 0%;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li.drop {
+    display: inline-block;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    padding: 20px 15px;
+    text-decoration: none;
+}
+
+li a:hover, .drop:hover .dropbtn {
+    background-color: rgb(18, 18, 18);
+}
+
+.drop-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 120px;
+}
+
+.drop-content a{
+    color: black;
+    display: block;
+    text-align: left;
+}
+
+.drop-content a:hover {
+    color: white;
+}
+
+.drop:hover .drop-content {
+    display: block;
+}

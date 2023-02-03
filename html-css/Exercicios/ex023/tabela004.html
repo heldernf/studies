@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            height: 50%;
+        }
+
+        thead {
+            height: 5vh;
+        }
+
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        
+        <thead>
+            <tr>
+                <th scope="col">GRUPO</th>
+                <th scope="col">NOMES</th>
+                <th scope="colgroup" colspan="3">FILMES</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <th scope="rowgroup" rowspan="3">MULHER</th>
+                <td>Cláudia</td>
+                <td>Velozes e furiosos 4</td>
+                <td>Debe e Loide</td>
+                <td>Jurassic Park</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>Star Wars</td>
+                <td>Indiana Jones</td>
+                <td>Cidade de Deus</td>
+            </tr>
+            <tr>
+                <td>Saphira</td>
+                <td>Vingadores</td>
+                <td>Doutor Estanho</td>
+                <td>Lego</td>
+            </tr>
+            <tr>
+                <th scope="rowgroup" rowspan="3">HOMEM</th>
+                <td>João</td>
+                <td>Vingadores</td>
+                <td>Doutor Estanho</td>
+                <td>Lego</td>
+            </tr>
+            <tr>
+                <td>Carlos</td>
+                <td>A Fuga das Galinhas</td>
+                <td>Galinha Pintadinha</td>
+                <td>Batman</td>
+            </tr>
+            <tr>
+                <td>André</td>
+                <td>Homem Aranha 1</td>
+                <td>Homem Forminha</td>
+                <td>Homem Banana</td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+
+<body>
+    kaka
+
+    <h1>FORMULÁRIO</h1>
+    <form>
+
+        <label for="email-f">Email:</label>
+        <input type="email" placeholder="Digite seu endereço de email" id="email-f" required
+            style="border-radius:5px; border-color: aqua; border-width: 3px; background: pink;">
+
+        <br>
+
+        <label for="user-f">Usuário:</label>
+        <input type="text" placeholder="Digite seu nome de usuário" id="user-f" required
+            style="border-radius:5px; border-color: aqua; border-width: 3px; background: pink;">
+
+        <br>
+
+        <label for="pass-f">Senha:</label>
+        <input type="password" placeholder="Digite sua senha" id="pass-f" required
+            style="border-radius:5px; border-color: aqua; border-width: 3px; background: pink;">
+
+        <h2>Selecione seu animal de estimação</h2>
+
+        <input type="radio" id="dog" name="animal" value="Cachorro">
+        <label for="dog">Cachorro</label>
+
+        <br>
+
+        <input type="radio" id="cat" name="animal" value="Gato">
+        <label for="cat">Gato</label>
+
+        <br>
+
+        <input type="radio" id="mouse" name="animal" value="Rato">
+        <label for="mouse">Rato</label>
+
+        <h2>O que você tem em casa?</h2>
+
+        <br>
+
+        <input type="checkbox" id="item1" name="item1" value="Tv">
+        <label for="item1">Tv</label>
+
+        <br>
+
+        <input type="checkbox" id="item2" name="item2" value="Geladeira">
+        <label for="item2">Geladeira</label>
+
+        <br>
+
+        <input type="checkbox" id="item3" name="item3" value="Moto">
+        <label for="item3">Moto</label>
+
+        <h2>Selecione uma cor</h2>
+
+        <select name="cores">
+            <option selected disabled value="">Selecione uma cor</option>
+            <option value="Vermelho">Vermelho</option>
+            <option value="Preto">Preto</option>
+            <option value="Rosa">Rosa</option>
+            <option value="Cinza">Cinza</option>
+        </select>
+
+        <h2>Digite sua mensagem</h2>
+        
+        <textarea name="mensagem" placeholder="Digite sua mensagem aqui!" rows="10" cols="45"></textarea>
+
+        <br>
+
+        <input type="submit" value="Enviar Formulário"
+            style="border-radius:5px; border-color: aqua; border-width: 3px; background: pink;">
+
+    </form>
+
+</body>
+
+</html>

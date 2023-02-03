@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Passion+One:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+}
+
+/* START HEADER | START HEADER | START HEADER | START HEADER | START HEADER | START HEADER | */
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    height: 330px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Passion One', cursive;;
+    font-size: 192px;
+    font-weight: 700;
+    font-variant: small-caps;
+}
+
+header p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* START MAIN | START MAIN | START MAIN | START MAIN | START MAIN | START MAIN | */
+
+main {
+    line-height: 134.4px;
+    font-size: 62.2px;
+    font-family: 'Sriracha', cursive;
+}
+
+main p {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    padding-left: 30px;
+}
+
+#sec2 {
+    padding: 90px 30px;
+    background-image: url(imagens/background001.jpg);
+    background-attachment: fixed;
+}
+
+#sec2 p {
+    padding: 15px;
+    display: inline-block;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.514);
+}
+
+#sec3 {
+    display: flex;
+    flex-direction: column;
+    row-gap: 100px;
+    padding: 90px 30px;
+}
+
+#sec4 {
+    padding: 90px 30px;
+    background-image: url(imagens/background002.jpg);
+    background-attachment: fixed;
+}
+
+#sec4 p {
+    padding: 15px;
+    display: inline-block;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.514);
+}
+
+/* START FOOTER | START FOOTER | START FOOTER | START FOOTER | START FOOTER | START FOOTER | */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    color: white;
+    background-color: black;
+    font-size: 16.2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

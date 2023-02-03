@@ -1,0 +1,17 @@
+@media screen and (min-width: 768px) {
+    #nav-icon {
+        display: none;
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav ul li {
+        display: inline-block;
+    }
+
+    main {
+        width: 768px;
+    }
+}
