@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>VOCÊ É ESTRANGEIRO?</h1>
+    <p>Saiba se você é um estrangeiro.</p>
+
+    <label for="stg-brl"></label>
+    <input type="text" name="stg-brl" id="stg-brl">
+    <input type="button" value="descobrir" onclick="descobrir()">
+    <div id="resposta"></div>
+
+    <script>
+        function descobrir(){
+            var país = document.getElementById('stg-brl')
+            var resposta = document.querySelector('div#resposta')
+            resposta.innerHTML = 'Você é estrangeiro!'
+            if (país = Brasil) {
+                resposta.innerHTML = 'Você é nativ  o!'
+            }
+        }
+    </script>
+</body>
+
+</html>
