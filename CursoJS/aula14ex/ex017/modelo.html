@@ -9,29 +9,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="carregar()">
+<body>
 
     <header>
-        <h1>Vamos contar</h1>
+        <div>
+            <h1>Curso em Video</h1>
+        </div>
     </header>
 
     <section>
+
+        <h2>Vamos Contar</h2>
+
         <div id="dados">
-            <p>Inicio: <input type="number" name="inicio" id="txti"></p>
-            <p>Fim: <input type="number" name="fim" id="txtf"></p>
-            <p>Passo: <input type="number" name="passo" id="txtp"></p>
-            <p><input type="button" value="Contar" onclick="contar()"></p>
+            <div class="number-box">
+                <input type="number" name="inicio" id="txti" required>
+                <label for="txti">INÍCIO</label>
+            </div>
+            
+            <div class="number-box">
+                <input type="number" name="fim" id="txtf" required>
+                <label for="txtf">FIM</label>
+            </div>
+
+            <div class="number-box">
+                <input type="number" name="passo" id="txtp" required>
+                <label for="txtp">PASSO</label>
+            </div>
         </div>
-        <div id="res">
-            Preparando a contagem...
+
+        <div id="button-div">
+            <input type="button" value="CALCULAR" onclick="contar()">
         </div>
+
     </section>
 
+    <div id="res-div">
+        <h3>resultado...</h3>
+        <p id="res"></p>
+    </div>
+
     <footer>
-        <p>&copy; CursoemVideo</p>
+        <p>&copy; 2023 - CursoemVideo</p>
     </footer>
     
     <script src="script.js"></script>
+    
 </body>
 
 </html>
