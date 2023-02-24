@@ -12,27 +12,22 @@
 <body onload="carregar()">
 
     <header>
-        <h1>Verificador de idade</h1>
+        <h1>Tabuada</h1>
     </header>
 
     <section>
+
         <div id="div-form">
-            <p>ANO DE NASCIMENTO:
-                <input type="number" name="txtano" id="txtano">
-            </p>
-            <p>SEXO:
-                <input type="radio" name="radsex" id="mas" checked>
-                <label for="mas">MASCULINO</label>
-                <input type="radio" name="radsex" id="fem">
-                <label for="fem">FEMINO</label>
-            </p>
-            <p>
-                <input type="button" value="VERIFICAR" onclick="verificar()">
-            </p>
+            <p>Número: <input type="number" name="num" id="txtn">
+            <input type="button" value="Gerar Tabuada" onclick="tabuada()"></p>
         </div>
-        <div id="res">
-            <p>PREENCHA OS DADOS ACIMA PARA VER O RESULTADO!</p>
+
+        <div id="res">    
+            <select name="tabuada" id="seltab" size="10">
+                <option value="">Digite um número acima.</option>
+            </select>     
         </div>
+
     </section>
 
     <footer>
