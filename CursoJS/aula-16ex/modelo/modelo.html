@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="carregar()">
+<body>
 
     <header>
         <h1>Analisador de Números</h1>
@@ -20,8 +20,9 @@
         <div id="div-form">
             Número (Entre 1 e 100):
             <input type="number" name="fnum" id="fnum">
-            <input type="button" value="Adicionar">
-            <br><select name="flista" id="flista"></select>
+            <input type="button" value="Adicionar" onclick="adicionar()">
+            <br><br><select name="flista" id="flista"></select>
+            <br><input type="button" value="Finalizar">
         </div>
 
         <div id="res">    

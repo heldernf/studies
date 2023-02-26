@@ -1,18 +1,29 @@
-function tabuada() {
-    let num = document.getElementById('txtn')
-    let tab = document.getElementById('seltab')
-    if (num.value.length == 0) {
-        alert('Por favor, digite um número!')
+let num = document.querySelector('input#fnum')
+let lista = document.querySelector('select#flista')
+var res = document.querySelector('div#res')
+let valores = []
+
+function isNumero(n) {
+    if(Number(n) >= 1 && Number(n) <= 100) {
+        return true
     } else {
-        let n = Number(num.value)
-        let c = 1
-        tab.innerHTML = ''
-        while (c <= 10) {
-            let item = document.createElement ('option')
-            item.text = `${n} x ${c} = ${n*c}`
-            item.value = `tab${c}`
-            tab.appendChild (item)
-            c++
-        }
+        return false
+    }
+}
+
+function inLista(n, l) {
+    if(l.indexOf(Number(n)) != -1) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function adicionar() {
+    if(isNumero(num.value) && !inLista(num.value, valores)) {
+        valores.push(Number(num.value))
+        let item
+    } else {
+        alert('Valor inválido ou ja encontrado na lista!!')
     }
 }
