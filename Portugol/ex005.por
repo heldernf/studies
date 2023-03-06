@@ -3,10 +3,11 @@ programa
 	
 	funcao inicio()
 	{
-		cadeia nome
-		escreva("Qual é o seu nome? ")
-		leia(nome)
-		escreva("Olá " + nome + ", é um prazer te conhecer!") 
+		inteiro a, b, r
+		a = 7
+		b = 2
+		r = a + b
+		escreva("O resultado é igual a = " + r)
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -14,7 +15,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 126; 
+ * @POSICAO-CURSOR = 131; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
