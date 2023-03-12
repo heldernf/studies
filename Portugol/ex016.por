@@ -3,15 +3,17 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro a, b, c, delta
-		escreva("Digite o (a) da sua equação: ")
-		leia(a)
-		escreva("Digite o (b) da sua equação: ")
-		leia(b)
-		escreva("Digite o (c) da sua equação: ")
-		leia(c)
-		delta = b*b - 4*a*c
-		escreva("Com base nos valores fornecidos, o Delta corresponde a: (" + delta + ").")
+		real cfumadod, anosf, anosf_d, mppcigarro, tfumado, mperdido, dperdido
+		escreva("Quantos cigarros você fuma por dia? ")
+		leia(cfumadod)
+		escreva("A quantos anos você fuma cigarro? ")
+		leia(anosf)
+		anosf_d = anosf * 365
+		mppcigarro = 10.0
+		tfumado = cfumadod * anosf_d
+		mperdido = tfumado * mppcigarro
+		dperdido = mperdido / 1440
+		escreva("Você fumou um total de (" + tfumado + ") cigarros, considerando que cada cigarro lhe tira (" + mppcigarro + ") minutos de vida, o total de cigarros que você fumou resulta em (" + mperdido + ") minutos fumando, e perdeu (" + dperdido + ") dias de vida!!")	
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -19,7 +21,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 326; 
+ * @POSICAO-CURSOR = 276; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

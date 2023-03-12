@@ -1,19 +1,17 @@
 programa
 {
-	
+	inclua biblioteca Util --> u
 	funcao inicio()
 	{
-		inteiro n1, n2
-		escreva("Primeiro valor: ")
-		leia(n1)
-		escreva("Primeiro valor: ")
-		leia(n2)
-		se (n1>n2) {
-			escreva("O primeiro valor é maior")
-		} senao se (n2>n1) {
-			escreva("O segundo valor é maior")
+		inteiro numero, nsorteado
+		escreva("Tente adivinha o número de 1 a 5 que irá ser sorteado: ")
+		leia(numero)
+		nsorteado = u.sorteia(1, 5)
+		escreva("Você escolheu o numero " + numero + " o numero sorteado foi " + nsorteado + ".\n")
+		se (numero == nsorteado) {
+			escreva("Parabens você acertou")
 		} senao {
-			escreva("Os valores são iguais")
+			escreva("Você errou, tente novamente")
 		}
 	}
 }
@@ -22,7 +20,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 286; 
+ * @POSICAO-CURSOR = 378; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

@@ -3,20 +3,27 @@ programa
 	
 	funcao inicio()
 	{
-		real sexo, valor, desconto, mf, porcentagem
-		escreva("Qual seu sexo? RESPONDA 1(Masculino) ou 2(Feminino) ")
-		leia(sexo)
-		escreva("Qual o valor do produtos? ")
-		leia(valor)
-		mf = sexo
-		se (mf == 1) {
-			porcentagem = 5.0
-			desconto = valor - (valor * porcentagem / 100)
-			escreva("Olá, hote estamos com um desconto de (R$ " + porcentagem + ") para homens, seu produto é (R$ " + valor + "), com o desconto aplicado nele, seu novo preço será de (R$ " + desconto + ").")
-		} se (mf == 2) {
-			porcentagem = 13.0
-			desconto = valor - (valor * porcentagem / 100)
-			escreva("Olá, hoje o desconto para mulheres está muito bom, está de (" + porcentagem + "%), seu produto é (R$ " + valor + "), com o desconto, ele ficará apenas (R$ " + desconto + ").")
+		cadeia nome
+		inteiro anost
+		real salario, nsalario, porcentagem
+		escreva("Digite o seu nome: ")
+		leia(nome)
+		escreva("A quantos anos você está trabalhando em nossa empresea? ")
+		leia(anost)
+		escreva("Qual o seu salário atual? ")
+		leia(salario)
+		se (anost <=3) {
+			porcentagem = 3.0
+			nsalario = salario + (salario * porcentagem / 100)
+			escreva("Olá " + nome + " obrigado por está a " + anost + " anos trabalhando junto conosco, seu salario atual é de R$" + salario + ", ele sofrerá um aumento de " + porcentagem + "%, então seu novo salário será R$" + nsalario + ".") 
+		} senao se (anost <= 10) {
+			porcentagem = 12.5
+			nsalario = salario + (salario * porcentagem / 100)
+			escreva("Olá " + nome + " obrigado por está a " + anost + " anos trabalhando junto conosco, seu salário atual é de R$" + salario + ", ele sofrerá um aumento de " + porcentagem + "%, então seu novo salário será R$" + nsalario + ".")
+		} senao {
+			porcentagem = 20.0
+			nsalario = salario + (salario * porcentagem / 100)
+			escreva("Olá " + nome + " obrigado por está a " + anost + " anos trabalhando junto conosco, seu salário atual é de R$" + salario + ", ele sofrerá um aumento de " + porcentagem + "%, então seu novo salário será R$" + nsalario + ".")
 		}
 	}
 }
@@ -25,7 +32,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 362; 
+ * @POSICAO-CURSOR = 992; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

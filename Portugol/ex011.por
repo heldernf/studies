@@ -3,12 +3,15 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro numero, antecessor, sucessor
-		escreva("Digite um número e diremos a você qual é o sucessor e o antecessor desse número que você digitar: ")
-		leia(numero)
-		antecessor = numero - 1
-		sucessor = numero + 1
-		escreva("O antecessor do numero (" + numero + ") é (" + antecessor + "), e o sucessor é (" + sucessor + ".")
+		inteiro a, b, c, delta
+		escreva("Digite o (a) da sua equação: ")
+		leia(a)
+		escreva("Digite o (b) da sua equação: ")
+		leia(b)
+		escreva("Digite o (c) da sua equação: ")
+		leia(c)
+		delta = b*b - 4*a*c
+		escreva("Com base nos valores fornecidos, o Delta corresponde a: (" + delta + ").")
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -16,7 +19,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 340; 
+ * @POSICAO-CURSOR = 326; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

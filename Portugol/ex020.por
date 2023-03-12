@@ -3,15 +3,15 @@ programa
 	
 	funcao inicio()
 	{
-		real nota1, nota2, media
-		escreva("Qual foi a sua primeira nota? ")
-		leia(nota1)
-		escreva("Qual foi a sua segunda nota? ")
-		leia(nota2)
-		escreva("Nota 1: " + nota1)
-		escreva("Nota 2: " + nota2)
-		media = (nota1 + nota2) / 2
-		escreva("Fazendo a soma entre a suas duas notas (" + nota1 + ") e (" + nota2 + "), obtemos a sua media, que resultou em: " + media)
+		inteiro numero, parimp
+		escreva("Digite um número para que eu lhe informe se ele é ÍMPAR ou PAR. ")
+		leia(numero)
+		parimp = numero % 2
+		se (parimp == 0) {
+			escreva("Este número é PAR.")
+		} senao {
+			escreva("Este número é ÍMPAR.")
+		}
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -19,7 +19,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 320; 
+ * @POSICAO-CURSOR = 139; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

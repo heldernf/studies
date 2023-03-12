@@ -3,14 +3,11 @@ programa
 	
 	funcao inicio()
 	{
-		real numero, dobro, pt3, pt3dobro
-		escreva("Digite um número: ")
-		leia(numero)
-		dobro = numero * 2
-		pt3 = numero / 3
-		pt3dobro = dobro / 3
-		escreva("O dobro de (" + numero + ") é (" + dobro + "), a terça parte de (" + numero + ") corresponde a (" + pt3 + "), e a terça parte do dobro do (" + numero + ") é igual a (" + pt3dobro + ").")
-
+		real valor, pdesconto
+		escreva("Digite o valor do produto e direi qual o valor dele com base na nossa atual promoção de 5% de desconto! Iai, qual o valor do produto que você está interessado? ")
+		leia(valor)
+		pdesconto = valor - (valor * 5 / 100)
+		escreva("De acordo com o valor fornecido (R$" + valor + "), este produto esta saindo a (R$" + pdesconto + "), com base na nossa atual promoção!")
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -18,7 +15,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 359; 
+ * @POSICAO-CURSOR = 268; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

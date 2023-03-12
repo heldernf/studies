@@ -3,11 +3,16 @@ programa
 	
 	funcao inicio()
 	{
-		real salario, reajuste
-		escreva("Digite o seu salário: R$")
-		leia(salario)
-		reajuste = salario + (salario * 15 / 100)
-		escreva("Fazendo um reajuste de +15% do seu salario atual (R$" + salario + "), seu novo salário sera de(R$" + reajuste + ").")
+		inteiro idade
+		escreva("Quantos anos você tem? ")
+		leia(idade)
+		se (idade < 16) {
+			escreva("Você não pode votar, pois você tem apenas (" + idade + ") anos de idade!")
+		} se (idade >= 16) {
+			escreva("Seu voto é opcional, pois você tem (" + idade + ") anos de idade!") 
+		} se (idade >= 18) {
+			escreva("Seu voto é OBRIGATÓRIO, pois você tem (" + idade + ") anos de idade. Caso esteja sem condições para ir votar, ligue para (XX) XXXX-XXXX!")
+		}
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -15,7 +20,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 191; 
+ * @POSICAO-CURSOR = 218; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

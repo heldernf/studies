@@ -3,15 +3,17 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro idade
-		escreva("Quantos anos você tem? ")
-		leia(idade)
-		se (idade < 16) {
-			escreva("Você não pode votar, pois você tem apenas (" + idade + ") anos de idade!")
-		} se (idade >= 16) {
-			escreva("Seu voto é opcional, pois você tem (" + idade + ") anos de idade!") 
-		} se (idade >= 18) {
-			escreva("Seu voto é OBRIGATÓRIO, pois você tem (" + idade + ") anos de idade. Caso esteja sem condições para ir votar, ligue para (XX) XXXX-XXXX!")
+		real km, vkm, calc
+		escreva("Quantos Km's deseja percorrer? ")
+		leia(km)
+		se (km <= 200) {
+			vkm = 0.50
+			calc = km * vkm
+			escreva("Você pretende viajar (" + km + " Km), cada Km está saindo por (R$ " + vkm + "), então você gastar um total de (R$ " + calc + ") para viajar (" + km + ") Km.")
+		} se (km > 200) {
+			vkm = 0.45
+			calc = km * vkm
+			escreva("Você pretende viajar (" + km + " Km), cada Km está saindo por (R$ " + vkm + "), então você gastar um total de (R$ " + calc + ") para viajar (" + km + ") Km.")
 		}
 	}
 }
@@ -20,7 +22,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 218; 
+ * @POSICAO-CURSOR = 517; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

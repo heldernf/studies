@@ -3,14 +3,17 @@ programa
 	
 	funcao inicio()
 	{
-		inteiro numero, parimp
-		escreva("Digite um número para que eu lhe informe se ele é ÍMPAR ou PAR. ")
-		leia(numero)
-		parimp = numero % 2
-		se (parimp == 0) {
-			escreva("Este número é PAR.")
+		inteiro n1, n2
+		escreva("Primeiro valor: ")
+		leia(n1)
+		escreva("Primeiro valor: ")
+		leia(n2)
+		se (n1>n2) {
+			escreva("O primeiro valor é maior")
+		} senao se (n2>n1) {
+			escreva("O segundo valor é maior")
 		} senao {
-			escreva("Este número é ÍMPAR.")
+			escreva("Os valores são iguais")
 		}
 	}
 }
@@ -19,7 +22,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 139; 
+ * @POSICAO-CURSOR = 286; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

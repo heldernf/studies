@@ -3,16 +3,20 @@ programa
 	
 	funcao inicio()
 	{
-		real velocidade, multa, dif
-		escreva("Qual a velocidade do seu carro? ")
-		leia(velocidade)
-		se (velocidade > 80) {
-			escreva("Você foi multado por execesso de velocidade!\n")
-			dif = velocidade - 80
-			multa = dif * 5
-			escreva("Considerando que a multa é de (R$ 5,00) por Km acima da velocidade permitida (80Km/h, NESTA VIA), você está sendo multado em (R$ " + multa + "), pois você passou (" + dif + "Km/h) acima do permitido nesta via!") 
-		} senao {
-			escreva("Sua velocidade está abaixo de velocidade não permitida, parabéns!")
+		real sexo, valor, desconto, mf, porcentagem
+		escreva("Qual seu sexo? RESPONDA 1(Masculino) ou 2(Feminino) ")
+		leia(sexo)
+		escreva("Qual o valor do produtos? ")
+		leia(valor)
+		mf = sexo
+		se (mf == 1) {
+			porcentagem = 5.0
+			desconto = valor - (valor * porcentagem / 100)
+			escreva("Olá, hote estamos com um desconto de (R$ " + porcentagem + ") para homens, seu produto é (R$ " + valor + "), com o desconto aplicado nele, seu novo preço será de (R$ " + desconto + ").")
+		} se (mf == 2) {
+			porcentagem = 13.0
+			desconto = valor - (valor * porcentagem / 100)
+			escreva("Olá, hoje o desconto para mulheres está muito bom, está de (" + porcentagem + "%), seu produto é (R$ " + valor + "), com o desconto, ele ficará apenas (R$ " + desconto + ").")
 		}
 	}
 }
@@ -21,7 +25,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 590; 
+ * @POSICAO-CURSOR = 362; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

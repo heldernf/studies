@@ -3,14 +3,13 @@ programa
 	
 	funcao inicio()
 	{
-		real largura, altura, area, tinta
-		escreva("Digite em METROS a largura da parede: ")
-		leia(largura)
-		escreva("Digite em METROS a altura da parede: ")
-		leia(altura)
-		area = largura * altura
-		tinta = area / 2
-		escreva("Com base na largura e altura fornecida, a área total da parede é de (" + area + ")m, para pinta-la completamente, será preciso de (" + tinta + ") litros de tinta.")
+		real dtrabalhado, d_for_h, h_div_8, vreceber
+		escreva("Informe-me quantos dias você trabalhou para que eu lhe informe o valor que você irá receber: ")
+		leia(dtrabalhado)
+		d_for_h = dtrabalhado * 24
+		h_div_8 = d_for_h / 8
+		vreceber = h_div_8 * 25
+		escreva("Você trabalhou (" + dtrabalhado + ") dias, convertendo para horas, da um total de (" + d_for_h + ") horas, sabendo que cada 8 horas de trabalho equivale a R$ 25,00, dividimos 8 por suas horas trabalhada, que deu o seguinte resultado (" + h_div_8 + "), com isso, multiplicanos este valor, por 25, que é o total de dinheiro que equivale 8 horas trabalhada, então fazendo todo o calculo, podemos lhe informar de que você irá receber (R$ " + vreceber + ").")
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -18,7 +17,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 347; 
+ * @POSICAO-CURSOR = 753; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
