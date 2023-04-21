@@ -1,18 +1,21 @@
 programa
 {
+
+	funcao real Media(real nota1, real nota2) {
+		real media = (nota1 + nota2) / 2
+		retorne media
+	}
 	
 	funcao inicio()
 	{
-		inteiro cont
-		cadeia v[7]
-		para (cont = 0; cont < 7; cont++) {
-			escreva("Digite o seu nome: ")
-			leia(v[cont])
-		}
+		real nota1, nota2
+	
+		escreva("Digite sua NOTA 1: ")
+		leia(nota1)
+		escreva("Digite sua NOTA 2: ")
+		leia(nota2)
 
-		para (cont = 6; cont > -1; cont--) {
-			escreva("|" + cont + "|" + v[cont] + " ")
-		}
+		escreva("A média de suas notas [" + nota1 + "] e [" + nota2 + "] resultou na média: " + Media(nota1,nota2) + ".")
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -20,7 +23,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 239; 
+ * @POSICAO-CURSOR = 112; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

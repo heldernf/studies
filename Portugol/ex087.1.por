@@ -1,26 +1,25 @@
 programa
 {
 	
-	funcao inicio()
+	funcao vazio gerador(cadeia frase) {
+		escreva("+-------=======------+\n" + frase + "\n+-------=======------+")
+	}
+	
+	funcao vazio inicio()
 	{
-		inteiro cont
-		cadeia v[7]
-		para (cont = 0; cont < 7; cont++) {
-			escreva("Digite o seu nome: ")
-			leia(v[cont])
-		}
-
-		para (cont = 6; cont > -1; cont--) {
-			escreva("|" + cont + "|" + v[cont] + " ")
-		}
+		cadeia frase
+		escreva("Digite o que a sua mensagem: ")
+		leia(frase)
+		gerador(frase)
 	}
 }
+
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 239; 
+ * @POSICAO-CURSOR = 251; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

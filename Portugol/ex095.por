@@ -1,26 +1,30 @@
 programa
 {
 	
+funcao inteiro Somador(inteiro valor1, inteiro valor2) {
+		inteiro resultado = valor1 + valor2
+		retorne resultado
+	}				
+	
 	funcao inicio()
 	{
-		inteiro cont
-		cadeia v[7]
-		para (cont = 0; cont < 7; cont++) {
-			escreva("Digite o seu nome: ")
-			leia(v[cont])
-		}
-
-		para (cont = 6; cont > -1; cont--) {
-			escreva("|" + cont + "|" + v[cont] + " ")
-		}
+		inteiro valor1, valor2
+		
+		escreva("Escreva o Primeiro valor: ")
+		leia(valor1)
+		escreva("Escreva o Segundo valor: ")
+		leia(valor2)
+		Somador(valor1, valor2)
+		escreva("A soma entre " + valor1 + " e " + valor2 + " é " + Somador(valor1, valor2) + ".")
 	}
 }
+
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 239; 
+ * @POSICAO-CURSOR = 127; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
