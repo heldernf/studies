@@ -1,0 +1,1 @@
+const carro = {marca:"Ford", modelo: "Ka", ano:2015, placa: "DBW-4K2"};
