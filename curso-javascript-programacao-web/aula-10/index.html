@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,10 @@
     <title>Aprendendo JS</title>
     <style>
         * {
-             padding: 0px;
-             margin: 0px;
-             box-sizing: border-box;
-             font-family: Arial, Helvetica, sans-serif;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         html {
@@ -20,10 +21,31 @@
         body {
             background-image: linear-gradient(rgb(3, 97, 221), rgb(11, 122, 196));
             text-align: center;
+            height: 100%;
         }
     </style>
 </head>
-<body>
-    
+
+<!-- onmousedown="alert('Clicou na tela.')" onmouseup="alert('Parou de clicar na tela.')" -->
+
+<body onload="alert('Terminou de carregar.')" onresize="console.log('O navegador foi redimensionado.')">
+    <h1>Aprendendo JS</h1>
+    <p id="texto">JSJSJSJSJS</p>
+
+    <button onclick="eventoClick()">Click</button>
+    <button ondblclick="envetoDblClick()">DBLClick</button>
+
+    <select name="" id="itens" onchange="mudou()">
+        <option value="1">valor1</option>
+        <option value="2">valor2</option>
+        <option value="3">valor3</option>
+    </select>
+
+    <div id="teste" onmouseover="viraVermelho()" onmouseout="voltaNormal()" onmousemove="adicionaTexto()" style="width: 50%; height: 600px; margin: auto; background-color: green;"></div>
+
+    <input type="text" name="" id="campoTexto" placeholder="Digite alguma coisa" onfocus="limpaTexto()" onchange="mudou()" onblur="eventoClick()" onkeyup="teclaPressionada()" value="Ja vem com texto">
+
+    <script src="js/index.js"></script>
 </body>
+
 </html>
