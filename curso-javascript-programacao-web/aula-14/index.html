@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,10 @@
     <title>Aprendendo JS</title>
     <style>
         * {
-             padding: 0px;
-             margin: 0px;
-             box-sizing: border-box;
-             font-family: Arial, Helvetica, sans-serif;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         html {
@@ -21,9 +22,24 @@
             background-image: linear-gradient(rgb(3, 97, 221), rgb(11, 122, 196));
             text-align: center;
         }
+
+        #p {
+            visibility: hidden;
+        }
+
+        #btn2 {
+            visibility: hidden;
+        }
     </style>
 </head>
+
 <body>
-    
+    <h1>Aprendendo Javascript</h1>
+    <p id="p">.</p>
+    <input type="text" name="cor" id="cor" placeholder="Digite uma cor">
+    <button onclick="verificarCor()">Verificar</button>
+    <button id="btn2" onclick="corPadrao()">Padrão</button>
+    <script src="js/index.js"></script>
 </body>
+
 </html>
