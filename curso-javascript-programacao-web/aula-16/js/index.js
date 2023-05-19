@@ -50,9 +50,12 @@ function stopContagem() {
 }
 
 function resetContagem() {
+    var tempoID0 = document.getElementById('tempo0');
     var tempoID1 = document.getElementById('tempo1');
     var tempoID2 = document.getElementById('tempo2');
     var tempoID3 = document.getElementById('tempo3');
+    tempoID0.style.display = "none"
+    tempoID0.innerHTML = "00:";
     tempoID1.innerHTML = "00:";
     tempoID2.innerHTML = "00.";
     tempoID3.innerHTML = "00";
