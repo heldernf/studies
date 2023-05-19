@@ -155,8 +155,7 @@ main #div-form form #btn-gerar:hover {
     background-color: rgb(240, 240, 240);
 }
 
-main #div-form form #btn-gerar:active,
-main #div-form form #btn-gerar ~ #icon-check {
+main #div-form form #btn-gerar:active {
     background-color: rgb(230, 230, 230);
     transition: 0s;
     outline: none;
@@ -180,8 +179,7 @@ main #div-form form #btn-limpa-res:hover {
     background-color: rgb(240, 240, 240);
 }
 
-main #div-form form #btn-limpa-res:active,
-main #div-form form #btn-limpa-res:active ~ #icon-trash {
+main #div-form form #btn-limpa-res:active {
     background-color: rgb(230, 230, 230);
     transition: 0s;
     outline: none;
