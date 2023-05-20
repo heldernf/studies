@@ -6,40 +6,47 @@ function startContagem() {
     stopBtn.style.display = "inline-block";
 
     cronometro = setInterval(function () {
-        var tempoID0 = document.getElementById('tempo0').innerHTML;
-        var tempoID1 = document.getElementById('tempo1').innerHTML;
-        var tempoID2 = document.getElementById('tempo2').innerHTML;
-        var tempoID3 = document.getElementById('tempo3').innerHTML;
+        var tempoID0 = document.getElementById('horas').innerHTML;
+        var tempoID1 = document.getElementById('minutos').innerHTML;
+        var tempoID2 = document.getElementById('segundos').innerHTML;
+        var tempoID3 = document.getElementById('miliSegundos').innerHTML;
         var horas = parseInt(tempoID0);
         var minutos = parseInt(tempoID1);
         var segundos = parseInt(tempoID2);
         var milisegundos = parseInt(tempoID3);
 
         milisegundos++;
-
-        if (milisegundos == 100) {
-            segundos++;
-            milisegundos = 0;
-        }
-        if (segundos == 60) {
-            minutos++;
-            segundos = 0;
-        }
-        if (minutos == 60) {
-            horas++;
-            minutos = 0;
-            document.getElementById('tempo0').style.display = "inline-block"
-        }
-
-        var horasFormatado = horas.toString().padStart(2, "0");
-        var minutosFormatado = minutos.toString().padStart(2, "0");
-        var segundosFormatado = segundos.toString().padStart(2, "0");
         var milisegundosFormatado = milisegundos.toString().padStart(2, "0");
+        document.getElementById('miliSegundos').innerHTML = milisegundosFormatado;
 
-        document.getElementById('tempo0').innerHTML = horasFormatado + ":";
-        document.getElementById('tempo1').innerHTML = minutosFormatado + ":";
-        document.getElementById('tempo2').innerHTML = segundosFormatado + ".";
-        document.getElementById('tempo3').innerHTML = milisegundosFormatado;
+        if (milisegundos == 100) { // SEGUNDOS
+            segundos++;
+            document.getElementById('miliSegundos').innerHTML = "00"; // ZERA OS MILISEGUNDOS
+
+            var segundosFormatado = segundos.toString().padStart(2, "0");
+            document.getElementById('segundos').innerHTML = segundosFormatado + ".";
+
+            if (segundos == 60) { // MINUTOS
+                minutos++;
+
+                document.getElementById('segundos').innerHTML = "00."; // ZERA OS SEGUNDOS
+
+                var minutosFormatado = minutos.toString().padStart(2, "0");
+                document.getElementById('minutos').innerHTML = minutosFormatado + ":";
+
+                if (minutos == 60) { // HORAS
+                    horas++;
+
+                    document.getElementById('minutos').innerHTML = "00:"; // ZERA OS MINUTOS
+
+                    if (horas == 1) {
+                        document.getElementById('horas').style.display = "inline-block"
+                    }
+                    var horasFormatado = horas.toString().padStart(2, "0");
+                    document.getElementById('horas').innerHTML = horasFormatado + ":";
+                }
+            }
+        }
     }, 10);
 }
 
@@ -50,10 +57,10 @@ function stopContagem() {
 }
 
 function resetContagem() {
-    var tempoID0 = document.getElementById('tempo0');
-    var tempoID1 = document.getElementById('tempo1');
-    var tempoID2 = document.getElementById('tempo2');
-    var tempoID3 = document.getElementById('tempo3');
+    var tempoID0 = document.getElementById('horas');
+    var tempoID1 = document.getElementById('minutos');
+    var tempoID2 = document.getElementById('segundos');
+    var tempoID3 = document.getElementById('miliSegundos');
     tempoID0.style.display = "none"
     tempoID0.innerHTML = "00:";
     tempoID1.innerHTML = "00:";

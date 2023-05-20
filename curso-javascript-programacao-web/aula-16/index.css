@@ -41,23 +41,23 @@ header div {
     padding-bottom: 20px;
 }
 
-header #tempo0 {
+header #horas {
     color: white;
     font-size: 11em;
     font-family: 'Digital';
     display: none;
 }
-header #tempo1 {
+header #minutos {
     color: white;
     font-size: 11em;
     font-family: 'Digital';
 }
-header #tempo2 {
+header #segundos {
     color: white;
     font-size: 11em;
     font-family: 'Digital';
 }
-header #tempo3 {
+header #miliSegundos {
     color: white;
     font-size: 5.5em;
     font-family: 'Digital';
