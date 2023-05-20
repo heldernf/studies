@@ -61,7 +61,7 @@ function resetContagem() {
     var tempoID1 = document.getElementById('minutos');
     var tempoID2 = document.getElementById('segundos');
     var tempoID3 = document.getElementById('miliSegundos');
-    tempoID0.style.display = "none"
+    tempoID0.removeAttribute('style');
     tempoID0.innerHTML = "00:";
     tempoID1.innerHTML = "00:";
     tempoID2.innerHTML = "00.";
