@@ -230,6 +230,19 @@ body section {
 
 body section #res {
     background-color: white;
-    height: 100px;
+    height: 50px;
     border-radius: 5px;
+    overflow: hidden;
+}
+
+body section #res h1 {
+    font-size: 15px;
+    padding: 0px 5px;
+    text-align: center;
+}
+
+body section #res h2 {
+    font-size: 15px;
+    padding: 0px 5px;
+    text-align: center;
 }
