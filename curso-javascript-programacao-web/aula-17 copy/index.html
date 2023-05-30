@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo JS</title>
+    <link rel="stylesheet" href="index.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header>
+        <i id="icon-car" class='bx bxs-car'></i>
+    </header>
+
+    <main>
+        <div id="container-div-input">
+            <div class="div-input">
+                <input type="text" class="input-car" name="marca" id="marca" required>
+                <label id="label-marca" for="marca">MARCA</label>
+            </div>
+
+            <div class="div-input">
+                <input type="text" class="input-car" name="modelo" id="modelo" required>
+                <label id="label-modelo" for="modelo">MODELO</label>
+            </div>
+
+            <div class="div-input">
+                <input type="text" class="input-car" name="ano" id="ano" required>
+                <label id="label-ano" for="ano">ANO</label>
+            </div>
+        </div>
+
+        <div id="container-btn">
+            <div id="div-btn">
+                <i id="icon-car-chave" class='bx bxs-car-mechanic'></i>
+                <input id="disfarce-btn-gerar" type="button" value=""> <!--FIZ PRA FAZER O EFEITO DE DESLIZE QUANDO O BOTÃO FOR :hover-->
+                <input id="btn-gerar" type="button" value="GERAR" onclick="fabCar()">
+            </div>
+        </div>
+    </main>
+
+    <section>
+        <div id="res">
+            <h1 id="h1-res"></h1>
+            <h2 id="h2-res"></h2>
+        </div>
+    </section>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
