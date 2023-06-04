@@ -4,10 +4,6 @@ class Carro {
         this.modelo = modelo;
         this.ano = ano;
     }
-
-    teste() {
-        return this.modelo + " testado";
-    }
 }
 
 var timeoutId;
@@ -61,3 +57,5 @@ function fabCar() {
         h2.innerHTML = "<span style='color: rgb(27, 98, 190);'>Marca:</span>" + carro.marca + " <span style='color: rgb(27, 98, 190);'>Modelo:</span>" + carro.modelo + " <span style='color: rgb(27, 98, 190);'>Ano:</span>" + carro.ano;
     }
 }
+
+// FALTOU BOTAR PRO ANO ATUALIZAR AUTO.
