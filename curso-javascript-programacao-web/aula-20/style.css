@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    border: none;
+}
+
+body {
+    max-width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/*
+-------------------------------------------
+| HEADER | HEADER | HEADER | HEADER | HEADER |
+-------------------------------------------
+*/
+
+header {
+    background-color: #0d0d0dff;
+    height: 20%;
+    width: 100%;
+}
+
+#div-header {
+    width: 40%;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+#div-header h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:rgb(37, 130, 184);
+}
+
+#div-header h1 span {
+    color: #7584faff;
+}
+
+/*
+-------------------------------------------
+| MAIN | MAIN | MAIN | MAIN | MAIN | MAIN |
+-------------------------------------------
+*/
+
+div#addTarefa {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 55px;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.322);
+}
+
+div#addTarefa input#tarefa {
+    width: 78%;
+    height: 100%;
+    padding: 0px 15px;
+    background-color: #1a1a1aff;
+    color: white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+div#addTarefa input#tarefa::placeholder {
+    font-size: 1.03rem;
+    font-weight: 400;
+}
+
+/*CLASS PARA FAZER O PLACEHOLDER FICAR ALTERNANDO DE COR E TENDO MAIS DESTAQUE*/
+.placeholder-red::placeholder {
+    color: rgb(156, 156, 156);
+    text-decoration: underline;
+}
+
+div#addTarefa button#btn-addTarefa {
+    width: 22%;
+    height: 100%;
+    background-color: rgb(37, 130, 184);
+    color: white;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: .2s;
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 6px;
+}
+
+#icon-plusInCircle {
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+div#addTarefa button#btn-addTarefa:hover ~ input#tarefa:invalid,
+div#addTarefa input#tarefa:invalid ~ button#btn-addTarefa:hover{
+    cursor: not-allowed;
+    background-color: rgb(143, 13, 13);
+    transition: .2s;
+}
+
+div#addTarefa button#btn-addTarefa:hover {
+    cursor: pointer;
+}
+
+/*
+-------------------------------------------
+| MAIN | MAIN | MAIN | MAIN | MAIN | MAIN |
+-------------------------------------------
+*/
+
+main {
+    background-color: #1a1a1aff;
+    min-height: 80%;
+    width: 100%;
+    padding-bottom: 10px
+}
+
+main section {
+    width: 700px;
+    height: 100%;
+    margin: auto;
+}
+
+/* | MAIN | MAIN | MAIN | MAIN | MAIN | MAIN | 
+-------------------------------------------
+| SECTION TOP | SECTION TOP | SECTION TOP |
+-------------------------------------------
+*/
+
+main section #section-top {
+    padding: 95px 0px 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+main section #section-top div {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+}
+
+/* ---------------div-total--------------- */
+
+main section #section-top #div-total p {
+    color: rgb(45, 152, 214);
+    font-weight: 700;
+    font-size: .95rem;
+}
+
+main section #section-top #div-total #p-total-number {
+    color: white;
+    background-color: #333333;
+    padding: 3px 6px;
+    border-radius: 999px;
+    font-size: .75rem;
+}
+
+/* ---------------div-realizadas--------------- */
+
+main section #section-top #div-realizadas p {
+    color: #7584faff;
+    font-weight: 700;
+    font-size: .95rem;
+}
+
+main section #section-top #div-realizadas #p-realizadas-number {
+    color: white;
+    background-color: #333333;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: .75rem;
+}
+
+/* | MAIN | MAIN | MAIN | MAIN | MAIN | MAIN |
+-------------------------------------------
+| SECTION BOTTOM | SECTION BOTTOM | SECTION BOTTOM |
+-------------------------------------------
+*/
+
+main section #section-bottom {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+/* ---------------SEM TAREFAS--------------- */
+
+main section #section-bottom #sem-tarefas {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #3b3b3bff;
+    padding-top: 70px;
+}
+
+main section #section-bottom #sem-tarefas img {
+    padding-bottom: 10px;
+}
+
+main section #section-bottom #sem-tarefas #sem-tarefas-p1 {
+    color: rgb(95, 95, 95);
+    font-weight: 700;
+    font-size: 1.07rem;
+}
+main section #section-bottom #sem-tarefas #sem-tarefas-p2 {
+    color: #3b3b3bff;
+    font-weight: 700;
+    font-size: 1.07rem;
+}
+
+/* ---------------COM TAREFAS--------------- */
+
+main section #section-bottom .tarefa-block {
+
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    background-color: #272727;
+    border-radius: 8px;
+}
+
+/* ---------------- */
+
+main section #section-bottom .tarefa-block .realizada {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid rgb(37, 130, 184);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+}
+
+main section #section-bottom .tarefa-block .realizada:hover {
+    cursor: pointer;
+}
+
+main section #section-bottom .tarefa-block .realizada:checked {
+    background-color: rgb(37, 130, 184);
+}
+
+main section #section-bottom .tarefa-block .realizada:checked::before {
+    content: '\2713';
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+/* ---------------- */
+
+main section #section-bottom .tarefa-block .tarefa-block-p {
+    width: 580px;
+    text-align: justify;
+    word-break: break-all;
+    color: white;
+}
+
+/* ---------------- */
+
+main section #section-bottom .tarefa-block button {
+    background-color: transparent;
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    overflow: hidden;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main section #section-bottom .tarefa-block button .icon-trash {
+    font-size: 1.7rem;
+    width: 100%;
+    height: 100%;
+    color: #3b3b3bff;
+    transition: .2s;
+}
+
+main section #section-bottom .tarefa-block button .icon-trash:hover {
+    color: rgb(143, 13, 13);
+    transition: .2s;
+    background-color: #272727;
+    cursor: pointer;
+}
