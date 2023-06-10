@@ -1,5 +1,6 @@
 let click = 0;
 let totalTarefas = 0;
+let checked = 0;
 function addTarefa() {
     var inputTarefa = document.getElementById('tarefa');
     var placeholderInputTarefa = inputTarefa.placeholder;
@@ -36,17 +37,13 @@ function addTarefa() {
 
         // SE O INPUT ESTIVER PREENCHIDO:
     } else {
-        totalTarefas++;
-        document.getElementById('p-total-number').innerHTML = totalTarefas;
-        
-        document.getElementById('p-realizadas-number').innerHTML = "0" + " / " + totalTarefas;
-
-        // BOTA DISPLAY NONE NA DIV QUE MOSTRA UMA MENSAGEM QUANDO VOCÊ AINDA NÃO ADICONOU TAREFAS
+        // BOTA DISPLAY "none" NA <div> QUE MOSTRA UMA MENSAGEM QUANDO VOCÊ AINDA NÃO ADICONOU TAREFAS
         var semTarefas = document.getElementById('sem-tarefas').style.display = "block";
         if (semTarefas === 'block') {
             document.getElementById('sem-tarefas').style.display = "none";
         }
 
+        // -----------------CRIAÇÃO DA DIV DE TAREFA-----------------
         var sectionBottom = document.getElementById('section-bottom')
 
         // CRIA DIV QUE VAI ESTÁ NA #section-bottom
@@ -59,6 +56,7 @@ function addTarefa() {
         inputCheckbox.type = "checkbox";
         inputCheckbox.name = "nrealizado";
         inputCheckbox.classList.add('realizada');
+        inputCheckbox.addEventListener('change', check);
         novaTarefa.appendChild(inputCheckbox);
 
         // CRIA <p> QUE VAI ESTÁ NA <div> CRIADA DENTRO DO #section-bottom
@@ -79,21 +77,46 @@ function addTarefa() {
         buttonSpan.innerHTML = " delete ";
         button.appendChild(buttonSpan)
 
+        // LIMPA O INPUT EM QUE VOCÊ ADICIONA A SUA TAREFA
         document.getElementById('tarefa').value = "";
+
+        // MOSTRA A QUANTIDA DE TAREFAS QUE FORAM CRIADAS
+        totalTarefas++;
+        document.getElementById('p-total-number').innerHTML = totalTarefas;
+        document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
+    }
+}
+
+// SE O INPUT FOR MARCADO, ELE EXECUTA ESSA FUNÇÃO QUE ATUALIZA A QUANT DE TAREFAS REALIZADAS
+function check() {
+    if (this.checked) {
+        checked++;
+        document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
+    } else {
+        checked--;
+        document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
     }
 }
 
 // NÃO SABIA COMO FAZER A PEDI AJUDA AO CHAT GPT SOBRE ESSA FUNCTION DE DELETAR TAREFAS
 function delTarefa(event) {
-    var botaoClicado = event.target || event.srcElement; // Obtém o botão que foi clicado (compatibilidade com diferentes navegadores)
+    var botaoClicado = event.target || event.srcElement;
+    var tarefaBlock = botaoClicado.closest('.tarefa-block');
 
-    var tarefaBlock = botaoClicado.closest('.tarefa-block'); // Encontra o elemento pai com a classe '.tarefa-block'
+    tarefaBlock.remove(); // APAGA O tarefa-block
 
-    if (tarefaBlock) {
-        tarefaBlock.remove(); // Remove o elemento '.tarefa-block' correspondente
+    // DESINCREMENTA O checkd PARA QUE AS TAREFAS "EX: 1 / 2" SEJA ATUALIZADO "EX: 0 / 2"
+    var checkbox = tarefaBlock.querySelector('.realizada'); // Encontra o input checkbox dentro do elemento '.tarefa-block'
+    if (checkbox.checked) {
+        checked--;
     }
 
     totalTarefas--;
     document.getElementById('p-total-number').innerHTML = totalTarefas;
-    document.getElementById('p-realizadas-number').innerHTML = "0" + " / " + totalTarefas;
+    document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
+
+    // FAZ A MENSAGEM QUE FALA QUE NÃO FOI CRIADA NENHUMA TAREFA, APARECER
+    if (totalTarefas == 0) {
+        document.getElementById('sem-tarefas').style.display = "block";
+    };
 }

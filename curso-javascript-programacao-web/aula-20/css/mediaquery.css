@@ -1,0 +1,111 @@
+@media (max-width: 769px) {
+    div#addTarefa {
+        width: 500px;
+    }
+
+    main section {
+        width: 500px;
+    }
+
+    main section #section-bottom .tarefa-block .realizada {
+        width: 22px;
+        height: 17px;
+        margin-top: 2.5px;
+    }
+
+    main section #section-bottom .tarefa-block .realizada:checked::before {
+        font-size: 13px;
+        top: 47%;
+        left: 47%;
+    }
+
+    main section #section-bottom .tarefa-block button {
+        width: 21px;
+        width: 21px;
+    }
+
+    main section #section-bottom .tarefa-block button .icon-trash {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 569px) {
+    div#addTarefa { 
+        width: 400px;
+    }
+
+    div#addTarefa input#tarefa::placeholder {
+        font-size: .85rem;
+    }
+
+    div#addTarefa button#btn-addTarefa {
+        font-size: .85rem;
+    }
+
+    main section {
+        width: 400px;
+    }
+
+    main section #section-bottom .tarefa-block .realizada {
+        width: 28px;
+        height: 17px;
+    }
+
+    main section #section-bottom .tarefa-block .realizada:checked::before {
+        font-size: 13px;
+        top: 47%;
+        left: 49%;
+    }
+}
+
+@media (max-width: 469px) {
+    #div-header h1 {
+        font-size: 1.8rem;
+    }
+
+    div#addTarefa input#tarefa::placeholder {
+        font-size: .8rem;
+    }
+
+    div#addTarefa {
+        width: 290px;
+        height: 45px;
+    }
+
+    div#addTarefa button#btn-addTarefa {
+        font-size: .8rem;
+    }
+
+    #icon-chevron_right {
+        font-size: 1rem;
+    }
+
+    main section {
+        width: 290px;
+    }
+    
+    main section #section-top #div-total p {
+        font-size: .85rem;
+    }
+    
+    main section #section-top #div-realizadas p {
+        font-size: .85rem;
+    }
+    
+    main section #section-bottom .tarefa-block .realizada {
+        margin-top: 3px;
+        width: 35px;
+        height: 17px;
+    }
+
+    main section #section-bottom .tarefa-block .realizada:checked::before {
+        font-size: 13px;
+        top: 47%;
+        left: 49%;
+    }
+
+    main section #section-bottom .tarefa-block button {
+        width: 18px;
+        width: 18px;
+    }
+}

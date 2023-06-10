@@ -5,22 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarefas</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tasks List</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mediaquery.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
 </head>
 
 <body>
     <header>
-        <div id="div-header">
-            <h1>tasks <span>list!</span></h1>
-        </div>
+        <h1>tasks <span>list!</span></h1>
     </header>
 
     <div id="addTarefa">
-        <input required type="text" name="ntarefa" id="tarefa" placeholder="Adicione uma nova tarefa">
+        <input autocomplete="" required type="text" name="ntarefa" id="tarefa" placeholder="Adicione uma nova tarefa">
         <button id="btn-addTarefa" onclick="addTarefa()">
-            Criar<span id="icon-plusInCircle" class="material-symbols-outlined">add_circle</span>
+            <p>Criar</p>
+            <span id="icon-chevron_right" class="material-symbols-outlined">chevron_right</span>
         </button>
     </div>
 
@@ -42,9 +43,16 @@
             <div id="section-bottom">
                 <div id="sem-tarefas">
                     <img src="img/annotation-table.png" alt="">
-                    <p id="sem-tarefas-p1">Nenhuma tarefa cadastrada</p>
+                    <p id="sem-tarefas-p1">Você não tem nenhum tarefa</p>
                     <p id="sem-tarefas-p2">Crie tarefas e organize seu dia</p>
                 </div>
+                <!-- <div class="tarefa-block">
+                    <input type="checkbox"  name="nrealizada" class="realizada">
+                    <p class="tarefa-block-p">sadfaffas</p>
+                    <button onclick="delTarefa()">
+                        <span class="material-symbols-outlined icon-trash"> delete </span>
+                    </button>
+                </div> -->
             </div>
 
         </section>
