@@ -1,122 +1,158 @@
-let click = 0;
-let totalTarefas = 0;
-let checked = 0;
+// RESPONSÁVEL POR NÃO DEIXAR CLICAR NO BOTÃO DE ADD TAREFA MAIS DE UMA VEZ EM MENOS DE UM 800MS SE O INPUT ESTIVER VAZIO, PARA QUE ASSIM, O EFEITO DE ALTERNAR O STILO DO PLACEHOLDER DO INPUT NÃO BUGUE
+let click = true;
+// CONTADOR PARA INCREMENTAR O ID DAS TAREFAS
+let contador = 0;
+// RESPONSÁVEL POR INCREMENTAR/DESINCREMENTAR O TOTAL DE TAREFAS FEITAS PRO TOTAL EXISTENTE EX: 2 / 5
+let tRealizadas = 0;
+// RESPONSÁVEL POR INCREMENTAR/DESINCREMENTAR O TOTAL DE TAREFAS EXISTENTES
+let tTarefas = 0;
+// PEGA O TOTAL DE TAREFAS ADICIONADA
+let totalTarefas = document.getElementById('p-total-number');
+// PEGA A QUANTIDADE DE TAREFAS REALIZADAS
+let totalRealizadas = document.getElementById('p-realizadas-number');
+
+// FUNÇÃO PARA ADICIONAR UM TAREFA ATRAVÉS DO enter
+document.getElementById('tarefa').onkeyup = enter
+function enter(event) {
+    if (event.keyCode === 13 || event.which === 13) {
+        document.getElementById('btn-addTarefa').click();
+    }
+}
+
+// FUNÇÃO PARA ADICIONAR UMA NOVA TAREFA
 function addTarefa() {
-    var inputTarefa = document.getElementById('tarefa');
-    var placeholderInputTarefa = inputTarefa.placeholder;
-    var inputTarefaValue = document.getElementById('tarefa').value;
+    // PEGA TODO O INPUT DE ADICIONAR TAREFA
+    var input = document.getElementById('tarefa');
+    // PEGA O QUE FOI DIGITADO NO INPUT
+    var inputValue = input.value;
+    // PEGA O PLACEHOLDER DO INPUT DE ADD TAREFA
+    var placeholderInput = input.placeholder;
+    // PEGA A DIV QUE MOSTRA A MENSAGEM QUE AVISA A PESSOA DE QUE ELA NÃO TEM NENHUMA TAREFA ADICIONADA
+    var semTarefas = document.getElementById('sem-tarefas');
 
-    // SE O INPUT DE ADICIONAR TAREFA ESTIVER VAZIO, NÃO VAI SER POSSÍVEL ADICIONAR NADA ""
-    if (inputTarefaValue == "") {
-
-        // ESSA CONDIÇÃO É PARA QUE NÃO HAJA MAIS UM CLICK EM MENOS DE 800miliseconds, PARA EVITAR QUE BUGUE
-        if (click == 0) {
-            click = 1;
-
-            // FAZ A COR DO PLACEHOLDER ALTERNAR ENTRE VERMELHO E A COR PADRÃO DELE E ADICONA UMA "!" AO FINAL DELE, COM A MESMA VARIAÇÃO DA COR
-            placeVariar = setInterval(function () {
-                if (inputTarefa.classList.contains('placeholder-red')) {
-                    inputTarefa.classList.remove('placeholder-red');
-                    inputTarefa.placeholder = placeholderInputTarefa;
+    // SE NÃO TIVER NADA NO INPUT, NADA ACONTECERÁ:
+    if (inputValue == "" || inputValue == null || inputValue == undefined) {
+        if (click == true) {
+            // FAZ COM QUE O addTarefa() NÃO SEJA EXECUTADO EM QUANTO O TEMPO DO EFEITO DE ALTERNA PLACEHOLDER NÃO ACABA, FAZENDO COM QUE O EFEITO NÃO BUGUE
+            click = false;
+            // FAZ O EFEITO DO PLACEHOLDER MUDAR QUANDO O INPUT DE ADICIONAR TAREFA ESTIVER VAZIO E A PESSOA TENTAR ADD UMA TAREFA
+            var alternaPlaceholder = setInterval(function () {
+                if (input.classList.contains('placeholder-alert')) {
+                    input.classList.remove('placeholder-alert')
+                    input.placeholder = placeholderInput;
                 } else {
-                    inputTarefa.classList.add('placeholder-red');
-                    inputTarefa.placeholder = placeholderInputTarefa + "!";
+                    input.classList.add('placeholder-alert');
+                    input.placeholder = placeholderInput + "!";
                 }
             }, 200);
 
-            // PARA A ALTERNÂNCIA DE COR DO PLACEHOLDER
-            setTimeout(function () {
-                clearInterval(placeVariar)
-                click = 0; // FAZ COM QUE SEJA POSSÍVEL CLICAR NO BOTÃO DE NOVO
-            }, 800)
-
-            // CASO O placeVariar AINDA NÃO TIVER ACABADO, O CLICK VAI ESTA COM VALOR 1, O QUE FAZ COM QUE NÃO SEJA POSSÍVEL REALIZAR A MESMA AÇÃO ANTES DO DEVIDO TEMPO "800milisegundos"
-        } else {
-            console.log("aguarde");
+            // PARA O EFEITO DE ALTERNAR O PLACEHOLDER
+            var stopAlternarPlaceholder = setTimeout(function () {
+                clearTimeout(alternaPlaceholder);
+                // ZERA O CLICK PARA PODER CLICAR NOVAMENTE NO BOTÃO DE ADICIONAR TAREFA
+                click = true;
+                input.focus();
+            }, 800);
         }
-
-        // SE O INPUT ESTIVER PREENCHIDO:
     } else {
-        // BOTA DISPLAY "none" NA <div> QUE MOSTRA UMA MENSAGEM QUANDO VOCÊ AINDA NÃO ADICONOU TAREFAS
-        var semTarefas = document.getElementById('sem-tarefas').style.display = "block";
-        if (semTarefas === 'block') {
-            document.getElementById('sem-tarefas').style.display = "none";
-        }
+        // RETIRA DE CENA A DIV QUE A MENSAGEM QUE AVISA A PESSOA DE QUE ELA NÃO TEM NENHUMA TAREFA ADICIONADA
+        semTarefas.style.display = "none";
 
-        // -----------------CRIAÇÃO DA DIV DE TAREFA-----------------
-        var sectionBottom = document.getElementById('section-bottom')
+        // LIMPA O INPUT DE ADICONAR TAREFAS E JÁ DEIXA ELE EM FOCO PARA NÃO TER QUE CLICAR NOVAMENTE PARA DIGITAR
+        input.value = "";
+        input.focus();
 
-        // CRIA DIV QUE VAI ESTÁ NA #section-bottom
-        var novaTarefa = document.createElement('div');
-        novaTarefa.classList.add('tarefa-block')
-        sectionBottom.appendChild(novaTarefa)
+        // INCREMENTA O tTarefas PARA MUDAR O TOTAL DE TAREFAS
+        tTarefas++;
+        totalTarefas.innerHTML = tTarefas;
 
-        // CRIA INPUT DO TIPO CHECKBOX QUE VAI ESTÁ NA <div> CRIADA DENTRO DO #section-bottom
-        var inputCheckbox = document.createElement('input');
-        inputCheckbox.type = "checkbox";
-        inputCheckbox.name = "nrealizado";
-        inputCheckbox.classList.add('realizada');
-        inputCheckbox.addEventListener('change', check);
-        novaTarefa.appendChild(inputCheckbox);
+        // PEGA AS TAREFAS REALIZADAS
+        totalRealizadas.innerHTML = tRealizadas + " / " + tTarefas;
 
-        // CRIA <p> QUE VAI ESTÁ NA <div> CRIADA DENTRO DO #section-bottom
-        var p = document.createElement('p');
-        p.classList.add('tarefa-block-p');
-        p.innerHTML = inputTarefa.value;
-        novaTarefa.appendChild(p);
+        // CONTADOR
+        contador++
 
-        // CRIA <button> QUE VAI ESTÁ NA <div> CRIADA DENTRO DO #section-bottom
-        var button = document.createElement('button');
-        button.addEventListener('click', delTarefa);
-        novaTarefa.appendChild(button);
+        // PEGA A DIV CONTAINER DAS TAREFAS QUE VÃO SER ADICIONADA
+        var containerTarefas = document.getElementById('section-bottom');
 
-        // CRIA <span> QUE VAI ESTÁ NO <button> CRIADO DENTRO DA <div> QUE FOI CRIADO DENTRO DO #section-bottom
-        var buttonSpan = document.createElement('span');
-        buttonSpan.classList.add('material-symbols-outlined');
-        buttonSpan.classList.add('icon-trash');
-        buttonSpan.innerHTML = " delete ";
-        button.appendChild(buttonSpan)
+        var divTarefaBlock = document.createElement('div');
+        divTarefaBlock.id = contador;
+        divTarefaBlock.className = "tarefa-block";
+        containerTarefas.appendChild(divTarefaBlock);
 
-        // LIMPA O INPUT EM QUE VOCÊ ADICIONA A SUA TAREFA
-        document.getElementById('tarefa').value = "";
+        var inputRealizada = document.createElement('input');
+        inputRealizada.type = "checkbox";
+        inputRealizada.name = "nrealizada";
+        inputRealizada.className = "realizada";
+        inputRealizada.addEventListener('change', check)
 
-        // MOSTRA A QUANTIDA DE TAREFAS QUE FORAM CRIADAS
-        totalTarefas++;
-        document.getElementById('p-total-number').innerHTML = totalTarefas;
-        document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
+        divTarefaBlock.appendChild(inputRealizada);
+
+        var pTarefaBlockP = document.createElement('p');
+        pTarefaBlockP.className = "tarefa-block-p";
+        pTarefaBlockP.innerHTML = inputValue;
+        divTarefaBlock.appendChild(pTarefaBlockP);
+
+        var buttonDelTarefa = document.createElement('button');
+        buttonDelTarefa.addEventListener('click', delTarefa)
+        divTarefaBlock.appendChild(buttonDelTarefa);
+
+        var spanIconTrash = document.createElement('span');
+        spanIconTrash.className = "material-symbols-outlined icon-trash";
+        spanIconTrash.innerHTML = " delete "
+        buttonDelTarefa.appendChild(spanIconTrash);
     }
 }
 
-// SE O INPUT FOR MARCADO, ELE EXECUTA ESSA FUNÇÃO QUE ATUALIZA A QUANT DE TAREFAS REALIZADAS
-function check() {
-    if (this.checked) {
-        checked++;
-        document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
+// INCREMENTA/DESINCREMENTA A QUANTIDADE DE TAREFAS FEITAS PARA A QUANTIDADE TOTAL EX: 0 / 3 DEPOIS QUE MARCOU O CHECKBOX DA TAREFA 1 / 3
+function check(event) {
+    var botaoClicado = event.target || event.srcElement;
+    var checkbox = botaoClicado.closest('.realizada');
+    if (checkbox.checked) {
+        tRealizadas++;
+        totalRealizadas.innerHTML = tRealizadas + " / " + tTarefas;
     } else {
-        checked--;
-        document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
+        tRealizadas--;
+        totalRealizadas.innerHTML = tRealizadas + " / " + tTarefas;
     }
 }
 
-// NÃO SABIA COMO FAZER A PEDI AJUDA AO CHAT GPT SOBRE ESSA FUNCTION DE DELETAR TAREFAS
 function delTarefa(event) {
+    // SELECIONA E APAGA A TAREFA EM QUE O BOTÃO DE APAGAR FOI CLICADO
     var botaoClicado = event.target || event.srcElement;
     var tarefaBlock = botaoClicado.closest('.tarefa-block');
+    tarefaBlock.remove();
 
-    tarefaBlock.remove(); // APAGA O tarefa-block
+    // DESINCREMENTA PARA DIMINUIR O NÚMERO DE TOTAL DE TAREFAS, POIS A MESMA FOI APAGADA
+    tTarefas--;
+    totalTarefas.innerHTML = tTarefas;
 
-    // DESINCREMENTA O checkd PARA QUE AS TAREFAS "EX: 1 / 2" SEJA ATUALIZADO "EX: 0 / 2"
-    var checkbox = tarefaBlock.querySelector('.realizada'); // Encontra o input checkbox dentro do elemento '.tarefa-block'
+    // PEGA O INPUT CHECKBOX E DEPOIS DESINCREMENTA SE O INPUT CHECKBOX DA TAREFA QUE FOI SELECIONADA ESTIVER MARCADO
+    var checkbox = tarefaBlock.querySelector('input.realizada')
     if (checkbox.checked) {
-        checked--;
+        tRealizadas--;
     }
+    // ATUALIZA O VALOR DO TOTAL DE TAREFAS MARCADAS PARA A QUANTIDADE DO TOTAL DE TAREFAS EXISTENTE
+    totalRealizadas.innerHTML = tRealizadas + "/" + tTarefas;
 
-    totalTarefas--;
-    document.getElementById('p-total-number').innerHTML = totalTarefas;
-    document.getElementById('p-realizadas-number').innerHTML = checked + " / " + totalTarefas;
-
-    // FAZ A MENSAGEM QUE FALA QUE NÃO FOI CRIADA NENHUMA TAREFA, APARECER
-    if (totalTarefas == 0) {
+    // SE TODAS AS TAREFAS FOREM APAGADAS, A DIV QUE MOSTRA A MENSAGEM DE QUE NÃO TEM TAREFAS, APARECE
+    if (tTarefas == 0) {
         document.getElementById('sem-tarefas').style.display = "block";
-    };
+    }
+}
+
+// DELETA TODAS AS TAREFAS
+function delTodasTarefa() {
+    var ttt = document.querySelectorAll('.tarefa-block');
+    ttt.forEach(function (elemento) {
+        elemento.remove();
+    });
+
+    tTarefas = 0;
+    totalTarefas.innerHTML = '0'
+    tRealizadas = 0;
+    totalRealizadas.innerHTML = '0 / 0'
+
+    // A DIV QUE MOSTRA A MENSAGEM DE QUE NÃO TEM TAREFAS, APARECE
+    document.getElementById('sem-tarefas').style.display = "block";
 }

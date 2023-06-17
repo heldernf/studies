@@ -21,7 +21,7 @@
         <input autocomplete="" required type="text" name="ntarefa" id="tarefa" placeholder="Adicione uma nova tarefa">
         <button id="btn-addTarefa" onclick="addTarefa()">
             <p>Criar</p>
-            <span id="icon-chevron_right" class="material-symbols-outlined">chevron_right</span>
+            <span class="material-symbols-outlined">chevron_right</span>
         </button>
     </div>
 
@@ -32,6 +32,10 @@
                 <div id="div-total">
                     <p>Tarefas</p>
                     <p id="p-total-number">0</p>
+                </div>
+
+                <div id="div-apagar-tudo">
+                    <button onclick="delTodasTarefa()">Apagar Tudo</button>
                 </div>
 
                 <div id="div-realizadas">
@@ -46,13 +50,7 @@
                     <p id="sem-tarefas-p1">Você não tem nenhum tarefa</p>
                     <p id="sem-tarefas-p2">Crie tarefas e organize seu dia</p>
                 </div>
-                <!-- <div class="tarefa-block">
-                    <input type="checkbox"  name="nrealizada" class="realizada">
-                    <p class="tarefa-block-p">sadfaffas</p>
-                    <button onclick="delTarefa()">
-                        <span class="material-symbols-outlined icon-trash"> delete </span>
-                    </button>
-                </div> -->
+                
             </div>
 
         </section>

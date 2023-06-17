@@ -89,7 +89,7 @@ div#addTarefa input#tarefa:focus {
 }
 
 /*CLASS PARA FAZER O PLACEHOLDER FICAR ALTERNANDO DE COR E TENDO MAIS DESTAQUE*/
-.placeholder-red::placeholder {
+.placeholder-alert::placeholder {
     color: rgb(156, 156, 156);
     text-decoration: underline;
 }
@@ -181,10 +181,30 @@ main section #section-top #div-total #p-total-number {
     color: white;
     background-color: #333333;
     padding: 3px 6px;
-    border-radius: 999px;
+    border-radius: 50%;
     font-size: .75rem;
 }
 
+/* ---------------div-apagar-tudo--------------- */
+
+main section #section-top #div-apagar-tudo button {
+    background-color: transparent;
+    color: white;
+    font-size: .95rem;
+    font-weight: 700;
+    padding: 3px 5px;
+    border-radius: 8px;
+    transition: .2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main section #section-top #div-apagar-tudo button:hover {
+    cursor: pointer;
+    background-color: #333333;
+    transition: .2s;
+}
 /* ---------------div-realizadas--------------- */
 
 main section #section-top #div-realizadas p {
@@ -240,7 +260,6 @@ main section #section-bottom #sem-tarefas #sem-tarefas-p2 {
 /* ---------------COM TAREFAS--------------- */
 
 main section #section-bottom .tarefa-block {
-
     width: 100%;
     padding: 10px 15px;
     display: flex;
