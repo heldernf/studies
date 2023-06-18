@@ -77,17 +77,32 @@
     }
 
     #icon-chevron_right {
-        font-size: 1rem;
+        font-size: .9rem;
     }
 
     main section {
         width: 290px;
     }
     
+    main section #section-top {
+        row-gap: 10px;
+        padding-bottom: 10px;
+    }
+
     main section #section-top #div-total p {
         font-size: .85rem;
     }
     
+    main section #section-top #div-apagar-tudo {
+        order: 3;
+        width: 100%;
+    }
+    
+    main section #section-top #div-apagar-tudo button {
+        width: 100%;
+        font-size: .85rem;
+    }
+
     main section #section-top #div-realizadas p {
         font-size: .85rem;
     }

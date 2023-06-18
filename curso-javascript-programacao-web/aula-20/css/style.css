@@ -112,9 +112,9 @@ div#addTarefa button#btn-addTarefa {
 }
 
 #icon-chevron_right {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-top: 1.2px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.3px;
 }
 
 div#addTarefa button#btn-addTarefa:hover ~ input#tarefa:invalid,
@@ -161,6 +161,7 @@ main section #section-top {
     padding: 95px 0px 20px 0px;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 main section #section-top div {
@@ -189,12 +190,13 @@ main section #section-top #div-total #p-total-number {
 
 main section #section-top #div-apagar-tudo button {
     background-color: transparent;
-    color: white;
+    color: rgb(155, 155, 155);
     font-size: .95rem;
     font-weight: 700;
     padding: 3px 5px;
     border-radius: 8px;
     transition: .2s;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.157);
 
     display: flex;
     justify-content: center;
@@ -202,7 +204,7 @@ main section #section-top #div-apagar-tudo button {
 }
 main section #section-top #div-apagar-tudo button:hover {
     cursor: pointer;
-    background-color: #333333;
+    background-color: #1d1d1d;
     transition: .2s;
 }
 /* ---------------div-realizadas--------------- */
