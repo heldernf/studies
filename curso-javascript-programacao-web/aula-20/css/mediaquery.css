@@ -96,10 +96,13 @@
     main section #section-top #div-apagar-tudo {
         order: 3;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     main section #section-top #div-apagar-tudo button {
-        width: 100%;
+        width: 95%;
         font-size: .85rem;
     }
 
