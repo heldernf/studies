@@ -287,3 +287,5 @@ function aviso() {
         clearInterval(aviso);
     }, 40000)
 }
+
+// :)
