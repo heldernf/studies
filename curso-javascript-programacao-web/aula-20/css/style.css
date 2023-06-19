@@ -67,6 +67,7 @@ div#addTarefa {
     display: flex;
     border-radius: 8px;
     box-shadow: 0px 0px 6px 4px rgba(0, 0, 0, 0.322);
+    z-index: 1;
 }
 
 div#addTarefa input#tarefa {

@@ -279,11 +279,11 @@ function aviso() {
                 vez--;
             }
             divAviso.style.opacity = "0";
-        }, 3200)
+        }, 5600)
         
-    }, 5000)
+    }, 20000)
 
     setTimeout(function () {
         clearInterval(aviso);
-    }, 20000)
+    }, 40000)
 }
