@@ -162,12 +162,41 @@ main section #section-top {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
 }
 
 main section #section-top div {
     display: flex;
     align-items: center;
     column-gap: 5px;
+}
+
+/* ---------------div-aviso--------------- */
+
+main section #section-top #div-aviso {
+    color: rgb(156, 156, 156);
+    font-size: .7rem;
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+
+    transition: .3s;
+    opacity: 0;
+}
+
+main section #section-top #div-aviso p {
+    transition: .3s;
+    transform: translate(-500%);
+}
+
+.div-aviso-alternar {
+    text-decoration: underline;
 }
 
 /* ---------------div-total--------------- */
