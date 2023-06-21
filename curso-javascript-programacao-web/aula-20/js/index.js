@@ -1,96 +1,50 @@
-// RESPONSÁVEL POR NÃO DEIXAR CLICAR NO BOTÃO DE ADD TAREFA MAIS DE UMA VEZ EM MENOS DE UM 800MS SE O INPUT ESTIVER VAZIO, PARA QUE ASSIM, O EFEITO DE ALTERNAR O STILO DO PLACEHOLDER DO INPUT NÃO BUGUE
+// INPUT QUE RECEBE A TAREFA QUE SERÁ ADICIONADA
+let input = document.getElementById('tarefa');
+let inputValue = input.value;
+let placeholderInput = input.placeholder;
+
 let click = true;
-// CONTADOR PARA INCREMENTAR O ID DAS TAREFAS
-let contador = localStorage.getItem('contador');
-// CONTADOR PARA INCREMENTAR O ID DAS TAREFAS DO LOCAL STORAGE
-let contador2 = 0;
-// RESPONSÁVEL POR INCREMENTAR/DESINCREMENTAR O TOTAL DE TAREFAS FEITAS PRO TOTAL EXISTENTE EX: 2 / 5
-let tRealizadas = localStorage.getItem('tRealizadas');
-// RESPONSÁVEL POR INCREMENTAR/DESINCREMENTAR O TOTAL DE TAREFAS EXISTENTES
+let contador = localStorage.getItem('contador'); // INCREMENTA O ID DAS TAREFAS
+
+// TOTAL DE TAREFAS
 let tTarefas = localStorage.getItem('tTarefas');
 if (localStorage.getItem('tTarefas') == null) {
     localStorage.setItem('tTarefas', 0);
     localStorage.setItem('tRealizadas', 0);
 }
-// PEGA O TOTAL DE TAREFAS ADICIONADA
 let totalTarefas = document.getElementById('p-total-number');
-// PEGA A QUANTIDADE DE TAREFAS REALIZADAS
+
+// TOTAL DE TAREFAS REALIZADAS
+let tRealizadas = localStorage.getItem('tRealizadas');
 let totalRealizadas = document.getElementById('p-realizadas-number');
 
 // DIV PARA QUANDO NÃO TIVER NENHUM TAREFA OU QUANDO APAGAR TODAS AS TAREFAS
-var semTarefas = document.getElementById('sem-tarefas');
+let semTarefas = document.getElementById('sem-tarefas');
 
-// EXECUTA A FUNÇÃO DE RECRIAR AS TAREFAS ADICIONADAS EM CASO DE RELOAD DA PÁGINA
-armazenamento();
-function armazenamento() {
-    // ATUALIZA OS VALORES DE TAREFAS REALIZADAS E DE TOTAL DE TAREFAS
-    totalTarefas.innerHTML = localStorage.getItem('tTarefas');
-    totalRealizadas.innerHTML = localStorage.getItem('tRealizadas') + " / " + localStorage.getItem('tTarefas');
-
-    for (var i = 1; i <= contador; i++) {
-        if (localStorage.getItem(`tarefa${i}`) != null) {
-            tarefaLocalStorage(localStorage.getItem(`tarefa${i}`), i)
-        }
+// FUNÇÃO PARA ADICIONAR UMA TAREFA ATRAVÉS DO enter
+input.onkeyup = enter
+function enter(event) {
+    if (event.keyCode === 13 || event.which === 13) {
+        document.getElementById('btn-addTarefa').click();
     }
 }
-function tarefaLocalStorage(nomeDaTarefa, i) {
-    contador2 = i;
-    // RETIRA DE CENA A DIV QUE A MENSAGEM QUE AVISA A PESSOA DE QUE ELA NÃO TEM NENHUMA TAREFA ADICIONADA
-    document.getElementById('sem-tarefas').style.display = "none";
 
-    var containerTarefas = document.getElementById('section-bottom');
-
-    var divTarefaBlock = document.createElement('div');
-    divTarefaBlock.id = contador2;
-    divTarefaBlock.className = "tarefa-block";
-    containerTarefas.appendChild(divTarefaBlock);
-
-    var inputRealizada = document.createElement('input');
-    inputRealizada.type = "checkbox";
-    inputRealizada.name = "nrealizada";
-    inputRealizada.className = "realizada";
-    inputRealizada.addEventListener('change', check)
-    divTarefaBlock.appendChild(inputRealizada);
-
-    if (divTarefaBlock.id == localStorage.getItem(`checkbox${i}`)) {
-        inputRealizada.checked = true;
-    }
-
-    var pTarefaBlockP = document.createElement('p');
-    pTarefaBlockP.className = "tarefa-block-p";
-    pTarefaBlockP.innerHTML = nomeDaTarefa;
-    divTarefaBlock.appendChild(pTarefaBlockP);
-
-    var buttonDelTarefa = document.createElement('button');
-    buttonDelTarefa.addEventListener('click', delTarefa)
-    divTarefaBlock.appendChild(buttonDelTarefa);
-
-    var spanIconTrash = document.createElement('span');
-    spanIconTrash.className = "material-symbols-outlined icon-trash";
-    spanIconTrash.innerHTML = " delete "
-    buttonDelTarefa.appendChild(spanIconTrash);
-
-    // FAZ COM QUE A TAREFA SEMPRE SEJA ADICIONADA A CIMA DA TAREFA QUE ESTÁ NO TOPO
-    var primeiraTarefa = containerTarefas.firstChild;
-    containerTarefas.insertBefore(divTarefaBlock, primeiraTarefa);
-}
-
-// FUNÇÃO PARA ADICIONAR UMA NOVA TAREFA CLICANDO NO BOTÃO
+// FUNÇÃO PARA ADICIONAR UMA TAREFA ATRAVÉS DO button#btn-addTarefa
 function addTarefa() {
-    // PEGA TODO O INPUT DE ADICIONAR TAREFA
-    var input = document.getElementById('tarefa');
-    // PEGA O QUE FOI DIGITADO NO INPUT
-    var inputValue = input.value;
-    // PEGA O PLACEHOLDER DO INPUT DE ADD TAREFA
-    var placeholderInput = input.placeholder;
 
-    // SE NÃO TIVER NADA NO INPUT, NADA ACONTECERÁ:
+    inputValue = input.value
+
     if (inputValue == "" || inputValue == null || inputValue == undefined) {
+
         if (click == true) {
-            // FAZ COM QUE O addTarefa() NÃO SEJA EXECUTADO EM QUANTO O TEMPO DO EFEITO DE ALTERNA PLACEHOLDER NÃO ACABA, FAZENDO COM QUE O EFEITO NÃO BUGUE
+
+            /* NÃO DEIXAR ADICIONAR TAREFA ENQUANTO NÃO ACABAR O
+            alternarPlaceholder PARA QUE ASSIM NÃO BUG */
             click = false;
-            // FAZ O EFEITO DO PLACEHOLDER MUDAR QUANDO O INPUT DE ADICIONAR TAREFA ESTIVER VAZIO E A PESSOA TENTAR ADD UMA TAREFA
-            var alternaPlaceholder = setInterval(function () {
+
+            // ADICIONA E REMOVE A CADA 200MS A CLASSE .plecholder-alert
+            const alternaPlaceholder = setInterval(function () {
+
                 if (input.classList.contains('placeholder-alert')) {
                     input.classList.remove('placeholder-alert')
                     input.placeholder = placeholderInput;
@@ -98,19 +52,28 @@ function addTarefa() {
                     input.classList.add('placeholder-alert');
                     input.placeholder = placeholderInput + "!";
                 }
-            }, 200);
 
-            // PARA O EFEITO DE ALTERNAR O PLACEHOLDER
-            var stopAlternarPlaceholder = setTimeout(function () {
+            }, 200); // 200MS
+
+            // PARA A const alternarPlaceholder
+            setTimeout(function () {
                 clearTimeout(alternaPlaceholder);
-                // ZERA O CLICK PARA PODER CLICAR NOVAMENTE NO BOTÃO DE ADICIONAR TAREFA
                 click = true;
                 input.focus();
-            }, 800);
+            }, 800); // 800MS
+
         }
+
     } else {
-        // RETIRA DE CENA A DIV QUE A MENSAGEM QUE AVISA A PESSOA DE QUE ELA NÃO TEM NENHUMA TAREFA ADICIONADA
+
+        /* RETIRA DE CENA A DIV QUE A MENSAGEM QUE AVISA A PESSOA DE QUE ELA
+        NÃO TEM NENHUMA TAREFA ADICIONADA */
         semTarefas.style.display = "none";
+
+        /* LIMPA O INPUT DE ADICONAR TAREFAS E JÁ DEIXA ELE EM FOCO PARA NÃO TER 
+        QUE CLICAR NOVAMENTE PARA DIGITAR */
+        input.value = "";
+        input.focus();
 
         // INCREMENTA O tTarefas PARA MUDAR O TOTAL DE TAREFAS
         tTarefas++;
@@ -120,62 +83,92 @@ function addTarefa() {
         totalRealizadas.innerHTML = tRealizadas + " / " + tTarefas;
         localStorage.setItem('tRealizadas', tRealizadas);
         localStorage.setItem('tTarefas', tTarefas);
+
         // CONTADOR PARA OS ID'S DAS TAREFAS
         contador++
-
-        // ATUALIZA O VALOR DO CONTADOR
         localStorage.setItem('contador', contador);
 
-        localStorage.setItem(`tarefa${contador}`, input.value);
+        // GUARDA NO localStorage A TAREFA ADICIONADA NO INPUT
+        localStorage.setItem(`tarefa${contador}`, inputValue);
 
-        // LIMPA O INPUT DE ADICONAR TAREFAS E JÁ DEIXA ELE EM FOCO PARA NÃO TER QUE CLICAR NOVAMENTE PARA DIGITAR
-        input.value = "";
-        input.focus();
+        tarefaLocalStorage(inputValue, contador);
 
-        // PEGA A DIV CONTAINER DAS TAREFAS QUE VÃO SER ADICIONADA
-        var containerTarefas = document.getElementById('section-bottom');
-
-        var divTarefaBlock = document.createElement('div');
-        divTarefaBlock.id = contador;
-        divTarefaBlock.className = "tarefa-block";
-        containerTarefas.appendChild(divTarefaBlock);
-
-        var inputRealizada = document.createElement('input');
-        inputRealizada.type = "checkbox";
-        inputRealizada.name = "nrealizada";
-        inputRealizada.className = "realizada";
-        inputRealizada.addEventListener('change', check)
-
-        divTarefaBlock.appendChild(inputRealizada);
-
-        var pTarefaBlockP = document.createElement('p');
-        pTarefaBlockP.className = "tarefa-block-p";
-        pTarefaBlockP.innerHTML = inputValue;
-        divTarefaBlock.appendChild(pTarefaBlockP);
-
-        var buttonDelTarefa = document.createElement('button');
-        buttonDelTarefa.addEventListener('click', delTarefa)
-        divTarefaBlock.appendChild(buttonDelTarefa);
-
-        var spanIconTrash = document.createElement('span');
-        spanIconTrash.className = "material-symbols-outlined icon-trash";
-        spanIconTrash.innerHTML = " delete "
-        buttonDelTarefa.appendChild(spanIconTrash);
-
-        // FAZ COM QUE A TAREFA SEMPRE ADICIONADA A CIMA DA TAREFA QUE ESTÁ NO TOPO
-        var primeiraTarefa = containerTarefas.firstChild;
-        containerTarefas.insertBefore(divTarefaBlock, primeiraTarefa);
     }
+
 }
 
-// FUNÇÃO PARA ADICIONAR UM TAREFA ATRAVÉS DO enter
-document.getElementById('tarefa').onkeyup = enter
-function enter(event) {
-    if (event.keyCode === 13 || event.which === 13) {
-        document.getElementById('btn-addTarefa').click();
+// EXECUTA A FUNÇÃO DE RECRIAR AS TAREFAS ADICIONADAS EM CASO DE RELOAD DA PÁGINA
+window.addEventListener('load', locStorage);
+function locStorage() {
+
+    if (localStorage.getItem('tTarefas') > 0) {
+        semTarefas.style.display = "none";
     }
+
+    // ATUALIZA O TOTAL DE TAREFA E O TOTAL DE TAREFAS REALIZADAS
+    totalTarefas.innerHTML = localStorage.getItem('tTarefas');
+    totalRealizadas.innerHTML = localStorage.getItem('tRealizadas') + " / " + localStorage.getItem('tTarefas');
+
+    /* COMEÇA O LOOP PARA RECRIAR AS TAREFAS, COM BASE NO contador QUE GUARDA 
+    O TOTAL DE TAREFAS QUE JA FORAM ADICIONADAS, ELE É DIFERENTE DO tTarefas 
+    POIS O tTarefas É O TOTAL DE TAREFAS QUE TEM AGORA, OU SEJA, SE O tTarefas
+    FOSSE USADO NO LUGAR DO contador ELE NÃO RECRIARIA TODAS AS TAREFAS
+    EX: EU CRIEI 4 TAREFAS E DEPOIS APAGUEI A TAREFA 2 E 3, O tTarefas TERÁ O 
+    VALOR 2 E O contador TERÁ O VALOR 4, PORTANTO SE EU USASSE O tTarefas PARA
+    RECRIAR AS TAREFAS, SO SERIA RECRIADO A PRIMEIRA TAREFA */
+    for (var i = 1; i <= contador; i++) {
+        // SE A TAREFA NÃO EXISTIR, NÃO SERÁ CRIADO UMA TAREFA
+        if (localStorage.getItem(`tarefa${i}`) != null) {
+            tarefaLocalStorage(localStorage.getItem(`tarefa${i}`), i)
+        }
+    }
+
 }
 
+// RECRIA TODAS AS TAREFAS QUE FORAM ARMAZENADAS
+function tarefaLocalStorage(inputValue, id) {
+
+    // PEGA A DIV CONTAINER DAS TAREFAS QUE VÃO SER ADICIONADA
+    const containerTarefas = document.getElementById('section-bottom');
+
+    const divTarefaBlock = document.createElement('div');
+    divTarefaBlock.id = id;
+    divTarefaBlock.className = "tarefa-block";
+    containerTarefas.appendChild(divTarefaBlock);
+
+    const inputRealizada = document.createElement('input');
+    inputRealizada.type = "checkbox";
+    inputRealizada.name = "nrealizada";
+    inputRealizada.className = "realizada";
+    inputRealizada.addEventListener('change', check)
+    divTarefaBlock.appendChild(inputRealizada);
+
+    // MARCA O CHECKBOX
+    if (divTarefaBlock.id == localStorage.getItem(`checkbox${id}`)) {
+        inputRealizada.checked = true;
+    }
+
+    const pTarefaBlockP = document.createElement('p');
+    pTarefaBlockP.className = "tarefa-block-p";
+    pTarefaBlockP.innerHTML = inputValue;
+    divTarefaBlock.appendChild(pTarefaBlockP);
+
+    const buttonDelTarefa = document.createElement('button');
+    buttonDelTarefa.addEventListener('click', delTarefa)
+    divTarefaBlock.appendChild(buttonDelTarefa);
+
+    const spanIconTrash = document.createElement('span');
+    spanIconTrash.className = "material-symbols-outlined icon-trash";
+    spanIconTrash.innerHTML = " delete "
+    buttonDelTarefa.appendChild(spanIconTrash);
+
+    // FAZ COM QUE A TAREFA SEMPRE ADICIONADA A CIMA DA TAREFA QUE ESTÁ NO TOPO
+    const primeiraTarefa = containerTarefas.firstChild;
+    containerTarefas.insertBefore(divTarefaBlock, primeiraTarefa);
+
+}
+
+// QUANDO O input:checkbox DA TAREFA É MARCADO
 function check(event) {
 
     const inputSelecionado = event.target || event.srcElement; // PROCURA QUAL input:checkbox FOI MARCADO
@@ -206,10 +199,10 @@ function check(event) {
         totalRealizadas.innerHTML = localStorage.getItem('tRealizadas') + " / " + localStorage.getItem('tTarefas');
 
         // REMOVE NO localStorage A INFO DE QUE O input:checkbox DA TAREFA, ESTÁ MARCADO
-        localStorage.removeItem(`checkbox${paiInputSelecionado.id}`)
+        localStorage.removeItem(`checkbox${paiInputSelecionadoId}`)
 
         /* PEGA O ID DA TAREFA MARCADA E SUBTRAI 1 PARA QUE SEJA POSSÍVEL
-        ENCONTRAR A TAREFA QUE VEM DEPOIS DELA, PARA QUE SEJA POSSÍVEL VOLTAR
+        ENCONTRAR A TAREFA QUE VEM DEPOIS DELA, ASSIM CONSEGUINDO VOLTAR
         A TAREFA QUE FOI DESMARCADA, PARA SUA POSIÇÃO DE ORIGEM */
         let calculo = parseInt(paiInputSelecionadoId) - 1;
         let tarefaSucessora = document.getElementById(calculo);
@@ -250,6 +243,7 @@ function delTarefa(event) {
     totalTarefas.innerHTML = localStorage.getItem('tTarefas');
 
     // REMOVE DO localStorage A TAREFA QUE FOI APAGADA
+    console.log(localStorage.getItem(`tarefa${tarefaBlockId}`))
     localStorage.removeItem(`tarefa${tarefaBlockId}`);
 
     // ATUALIZA O TOTAL DE TAREFAS REALIZADAS CASO O CHECKBOX TIVER MARCADO QUANDO A TAREFA É APAGADA
@@ -261,9 +255,12 @@ function delTarefa(event) {
     // ATUALIZA O VALOR DO TOTAL DE TAREFAS MARCADAS PARA A QUANTIDADE DO TOTAL DE TAREFAS EXISTENTE
     totalRealizadas.innerHTML = localStorage.getItem('tRealizadas') + " / " + localStorage.getItem('tTarefas');
 
-    // SE TODAS AS TAREFAS FOREM APAGADAS, A DIV QUE MOSTRA A MENSAGEM DE QUE NÃO TEM TAREFAS, APARECE
+    /* SE TODAS AS TAREFAS FOREM APAGADAS, A DIV QUE MOSTRA A MENSAGEM DE QUE NÃO TEM TAREFAS, APARECE
+    E O localStorage É LIMPADO */
     if (localStorage.getItem('tTarefas') == 0) {
         document.getElementById('sem-tarefas').style.display = "block";
+        localStorage.clear();
+        location.reload();
     }
 
 }
@@ -288,6 +285,7 @@ function delTodasTarefa() {
     semTarefas.style.display = "block";
 
     localStorage.clear();
+    location.reload();
 
 }
 
