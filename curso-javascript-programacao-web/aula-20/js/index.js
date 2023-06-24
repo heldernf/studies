@@ -22,7 +22,7 @@ let totalRealizadas = document.getElementById('p-realizadas-number');
 let semTarefas = document.getElementById('sem-tarefas');
 
 // FUNÇÃO PARA ADICIONAR UMA TAREFA ATRAVÉS DO enter
-input.onkeyup = enter
+input.onkeyup = enter;
 function enter(event) {
     if (event.keyCode === 13 || event.which === 13) {
         document.getElementById('btn-addTarefa').click();
@@ -91,6 +91,7 @@ function addTarefa() {
         // GUARDA NO localStorage A TAREFA ADICIONADA NO INPUT
         localStorage.setItem(`tarefa${contador}`, inputValue);
 
+        // CRIA A TAREFA
         tarefaLocalStorage(inputValue, contador);
 
     }
@@ -99,6 +100,8 @@ function addTarefa() {
 
 // EXECUTA A FUNÇÃO DE RECRIAR AS TAREFAS ADICIONADAS EM CASO DE RELOAD DA PÁGINA
 window.addEventListener('load', locStorage);
+
+// CRIA A TAREFA
 function locStorage() {
 
     if (localStorage.getItem('tTarefas') > 0) {
@@ -143,11 +146,6 @@ function tarefaLocalStorage(inputValue, id) {
     inputRealizada.addEventListener('change', check)
     divTarefaBlock.appendChild(inputRealizada);
 
-    // MARCA O CHECKBOX
-    if (divTarefaBlock.id == localStorage.getItem(`checkbox${id}`)) {
-        inputRealizada.checked = true;
-    }
-
     const pTarefaBlockP = document.createElement('p');
     pTarefaBlockP.className = "tarefa-block-p";
     pTarefaBlockP.innerHTML = inputValue;
@@ -162,9 +160,16 @@ function tarefaLocalStorage(inputValue, id) {
     spanIconTrash.innerHTML = " delete "
     buttonDelTarefa.appendChild(spanIconTrash);
 
-    // FAZ COM QUE A TAREFA SEMPRE ADICIONADA A CIMA DA TAREFA QUE ESTÁ NO TOPO
-    const primeiraTarefa = containerTarefas.firstChild;
-    containerTarefas.insertBefore(divTarefaBlock, primeiraTarefa);
+    // VERIFICA SE O CHECKBOX ESTÁ MARCADO (SERVE EM CASO DE RELOAD DA PÁGINA)
+    if (divTarefaBlock.id == localStorage.getItem(`checkbox${id}`)) {
+        // MARCA O CHECKBOX E BOTA A TAREFA PRO FINAL
+        inputRealizada.checked = true;
+        containerTarefas.appendChild(divTarefaBlock)
+    } else {
+        // FAZ COM QUE A TAREFA SEMPRE ADICIONADA A CIMA DA TAREFA QUE ESTÁ NO TOPO
+        const primeiraTarefa = containerTarefas.firstChild;
+        containerTarefas.insertBefore(divTarefaBlock, primeiraTarefa);
+    }
 
 }
 
@@ -175,7 +180,6 @@ function check(event) {
     const paiInputSelecionado = inputSelecionado.closest('.tarefa-block');
     const paiInputSelecionadoId = paiInputSelecionado.id;
     const containerTarefas = document.getElementById('section-bottom');
-    const ultimoFilho = containerTarefas.lastChild;
 
     if (inputSelecionado.checked) {
 
@@ -189,7 +193,6 @@ function check(event) {
 
         // BOTA A TAREFA PRO ULTIMO LUGAR
         containerTarefas.appendChild(paiInputSelecionado);
-        containerTarefas.insertBefore(paiInputSelecionado, ultimoFilho);
 
     } else {
 
@@ -210,19 +213,20 @@ function check(event) {
         TAREFA MARCADA */
         if (tarefaSucessora == null) {
             while (tarefaSucessora == null) {
-                calculo--;
-                tarefaSucessora = document.getElementById(calculo);
-
                 /* ESSA CONDIÇÃO SERVE PARA QUE QUANDO NÃO FOR ACHADO NENHUMA
-                TAREFA SUCESSORA DA TAREFA MARCADA, O LOOP PARE*/
-                if (calculo <= -1) {
+                TAREFA SUCESSORA DA TAREFA MARCADA, O LOOP PARE */
+                if (calculo <= 0) {
                     break;
+                } else {
+                    calculo--;
+                    tarefaSucessora = document.getElementById(calculo);
                 }
             }
         }
 
         // RETORNA A TAREFA DESMARCADA PARA A SUA POSIÇÃO ORIGINAL
         containerTarefas.insertBefore(paiInputSelecionado, tarefaSucessora);
+
     }
 }
 
