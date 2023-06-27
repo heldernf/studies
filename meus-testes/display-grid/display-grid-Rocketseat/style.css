@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 800px;
+    height: 800px;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+    'header main'
+    'aside main'
+    'aside footer'
+    ;
+    background-color: purple;
+}
+
+header {
+    background-color: rgb(18, 131, 184);
+    grid-area: header;
+}
+
+main {
+    background-color: rgb(180, 38, 19);
+    grid-area: main;
+}
+
+aside {
+    background-color: rgb(219, 199, 20);
+    grid-area: aside;
+}
+
+footer {
+    background-color: rgb(21, 185, 122);
+    grid-area: footer;
+}
