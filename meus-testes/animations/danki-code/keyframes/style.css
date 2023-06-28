@@ -1,9 +1,9 @@
 @keyframes animacao {
-    0% {background-color: #00ff22; width: 500px; transform: rotate(0deg);}
+    0% {background-color: #00ff22; width: 500px; transform: rotate(0deg) translate(0vw, -100vh) rotate(360deg);}
     25% {background-color: #eeff00; width: 375px; transform: rotate(5deg);}
     50% {background-color: #ff7b00; width: 250px; transform: rotate(0deg);}
     75% {background-color: #ff9100; width: 125px; transform: rotate(-5deg);}
-    100% {background-color: #ff0000; width: 0px; transform: rotate(0deg);}
+    100% {background-color: #ff0000; width: 0px; transform: rotate(0deg) translate(0vw, 100vh) rotate(360deg) scale(0);}
 }
 
 * {
@@ -22,6 +22,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 #container {
@@ -30,7 +31,6 @@ body {
     height: 500px;
     animation-name: animacao;
     animation-delay: 1s;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
-
 }
