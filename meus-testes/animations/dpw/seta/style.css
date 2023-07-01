@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    position: relative;
+}
+
+#chevron-down {
+    height: 15rem;
+    position: absolute;
+    top: 91%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: bounce .7s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+    to {
+        top: 93%;
+    }
+}
