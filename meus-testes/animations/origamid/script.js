@@ -33,3 +33,18 @@ setInterval (function() {
         inputEmail.type = 'email';
     }
 }, 0)
+
+function load() {
+    const body = document.querySelector('body')
+    const boxLogin = document.getElementById('box-login')
+    boxLogin.style.display = 'none'
+
+    const span = document.createElement('span')
+    span.id = 'load'
+    body.appendChild(span)
+
+    setInterval (function() {
+        span.remove();
+        boxLogin.style.display = 'block'
+    }, 1000)
+}

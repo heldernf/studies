@@ -99,9 +99,13 @@ body {
     padding-top: 5px;
     font-size: .85rem;
     color: #1354e2;
-    transition: .3s;
+    transition: .3s ease-in-out;
 
     order: 3;
+}
+
+#box-login form .div-info a:hover {
+    color: var(--f3a708);
 }
 
 #box-login form .div-info i {
@@ -142,4 +146,22 @@ body {
 
 #box-login form #div-btn #btn-connect:disabled {
     cursor: not-allowed;
+}
+
+span#load {
+    width: 30px;
+    height: 30px;
+    border: 6px solid var(--f3a708);
+    border-radius: 50%;
+    border-right-color: transparent;
+
+    position: absolute;
+
+    animation: load .4s linear infinite;
+}
+
+@keyframes load {
+    to {
+        transform: rotate(360deg);
+    }
 }
