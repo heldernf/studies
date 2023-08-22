@@ -38,6 +38,15 @@ body {
 
     display: flex;
     flex-direction: column;
+
+    animation: spawn .3s ease-in-out 0s 1 reverse forwards running;
+}
+
+@keyframes spawn {
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
 }
 
 #box-login #name-login {

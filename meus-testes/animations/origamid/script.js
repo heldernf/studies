@@ -34,6 +34,7 @@ setInterval (function() {
     }
 }, 0)
 
+// ANIMAÇÃO DE CARREGAR A PÁGINA
 function load() {
     const body = document.querySelector('body')
     const boxLogin = document.getElementById('box-login')
