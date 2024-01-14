@@ -51,6 +51,7 @@ main div p {
 main div img {
    width: 35%;
    border-radius: .5rem; 
+   object-fit: cover;
 }
 
 main div#two {
