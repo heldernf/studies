@@ -1,6 +1,8 @@
 {
     "liveServer.settings.port": 5501,
     "files.associations": {
-        "stdio.h": "c"
+        "*.c": "c",
+        "stdio.h": "c",
+        "locale.h": "c"
     }
 }

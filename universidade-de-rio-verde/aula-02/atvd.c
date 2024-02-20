@@ -7,11 +7,11 @@ int main() {
 
     int input1, input2, resultado, escolha;
 
-    printf("VAMOS BRINCAR!\n1-Soma 2-Subtrai 3-Multiplicação 4-Divisão\n");
+    printf("VAMOS BRINCAR! Escolha uma opção:\n1-Soma\n2-Subtrai\n3-Multiplicão\n4-Divisão\nSua escolha: ");
     scanf("%d", &escolha);
 
     if (escolha < 1 || escolha > 4) {
-        printf("Você não escolheu nenhumas da opções que te dei!");
+        printf("Você não escolheu nenhumas da opções que lhe dei!");
     } else {
         printf("Digite o primeiro número: ");
         scanf("%d", &input1);
