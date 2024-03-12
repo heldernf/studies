@@ -12,7 +12,7 @@ int main () {
     printf("Digite a quantos anos você fuma: ");
     scanf("%d", &fumadoAno);
 
-    diasPerdidos = (fumadoDia * 10) / 60 / 24 * (fumadoAno * 365);
+    diasPerdidos = fumadoDia * (fumadoAno * 365) / 60 / 24;
 
     printf("Você perdeu %d dias de vida!", diasPerdidos);
 
