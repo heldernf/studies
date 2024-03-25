@@ -5,7 +5,7 @@ int main () {
     setlocale(LC_ALL, "Portuguese_Brazil");
 
     char nome[50];
-    float salario, venda, comissao, salarioFinal;
+    float salario, venda, salarioFinal;
 
     printf("Digite seu nome: ");
     scanf("%[^\n]", nome);
