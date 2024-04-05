@@ -28,7 +28,7 @@
             background-color: #3b4b3d;
         }
 
-        div#container {
+        form {
             background-color: #ffffff;
             width: 40%;
             border-radius: .3rem;
@@ -36,37 +36,44 @@
             border: .15rem solid #1eff1e;
         }
 
-        div#container h1 {
+        form h1 {
             font-size: 1.35rem;
             text-align: center;
             margin-top: 1.5rem;
             padding: 0 1rem;
         }
 
-        div#container p {
-            width: 85%;
-            margin: 2rem auto 0 auto;
-            font-size: .95rem;
-            color: #000;
-            text-align: center;
-        }
-
-        span {
-            font-weight: 700;
-        }
-
-        p#erro {
-            color: #d41002;
-        }
-
-        div#container a {
+        form div {
+            background-color: #efffed;
+            border: .1rem solid #1eff1e;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 80%;
+            height: 3.4rem;
+            margin: 1.8rem auto 0 auto;
+            border-radius: .3rem;
+            padding: .7rem;
+        }
+
+        form div label, form div input {
+            display: block;
+            width: 100%;
+            background-color: transparent;
+            color: #000000;
+            font-weight: 600;
+            border: none;
+        }
+
+        form div label {
+            font-size: .75rem;
+        }
+
+        form button {
+            display: block;
             width: 55%;
             height: 2.6rem;
             border: none;
-            text-decoration: none;
             border-radius: .2rem;
             margin: 2rem auto 1rem auto;
             background-color: #efffed;
@@ -81,23 +88,16 @@
 </head>
 
 <body>
-    <div id="container">
-        <h1>RESULTADO:</h1>
+    <form action="index.php" method="post">
+        <h1>ENSIRA UM NÚMERO:</h1>
 
-        <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && is_numeric($_POST["numero"])) {
-                $numero = $_POST["numero"];
-                $antecessor = $numero - 1;
-                $sucessor = $numero + 1;
-                echo "<p><span>NÚMERO: $numero</span><br><br>ANTECESSOR: $antecessor<br>SUCESSO: $sucessor</p>";
-            } else {
-                header("location: index.html");
-                exit();
-            }
-        ?>
+        <div>
+            <label for="numero">NÚMERO</label>
+            <input type="number" name="numero" id="numero" required>
+        </div>
 
-        <a href="index.html">VOLTAR</a>
-    </div>
+        <button type="submit">ENVIAR</button>
+    </form>
 </body>
 
 </html>
