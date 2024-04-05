@@ -89,7 +89,7 @@
                 $numero = $_POST["numero"];
                 $antecessor = $numero - 1;
                 $sucessor = $numero + 1;
-                echo "<p><span>NÚMERO: $numero</span><br><br>ANTECESSOR: $antecessor<br>SUCESSO: $sucessor</p>";
+                echo "<p><span>NÚMERO: $numero</span><br><br>ANTECESSOR: $antecessor<br>SUCESSOR: $sucessor</p>";
             } else {
                 header("location: index.html");
                 exit();
