@@ -44,29 +44,21 @@
         }
 
         div#container p {
+            font-size: .9rem;
+            color: #000;
             width: 85%;
             margin: 2rem auto 0 auto;
-            font-size: .95rem;
-            color: #000;
             text-align: center;
-        }
-
-        span {
-            font-weight: 700;
-        }
-
-        p#erro {
-            color: #d41002;
         }
 
         div#container a {
             display: flex;
             justify-content: center;
             align-items: center;
+            text-decoration: none;
             width: 55%;
             height: 2.6rem;
             border: none;
-            text-decoration: none;
             border-radius: .2rem;
             margin: 2rem auto 1rem auto;
             background-color: #efffed;
@@ -76,27 +68,24 @@
             font-size: .8rem;
             letter-spacing: .15rem;
             cursor: pointer;
+            user-select: none;
         }
     </style>
 </head>
 
 <body>
     <div id="container">
-        <h1>RESULTADO:</h1>
+        <h1>GERE SEU NÚMERO ALEATÓRIO:</h1>
 
-        <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && is_numeric($_POST["numero"])) {
-                $numero = $_POST["numero"];
-                $antecessor = $numero - 1;
-                $sucessor = $numero + 1;
-                echo "<p><span>NÚMERO: $numero</span><br><br>ANTECESSOR: $antecessor<br>SUCESSO: $sucessor</p>";
-            } else {
-                header("location: index.html");
-                exit();
-            }
-        ?>
+        <p>
+            <?php
+                $min = 0;
+                $max = 69;
+                echo "Números aleatorios entre $min e $max<br>O número aleatório gerado foi: " . mt_rand($min, $max);
+            ?>
+        </p>
 
-        <a href="index.html">VOLTAR</a>
+        <a onclick="javascript:document.location.reload()">GERAR</a>
     </div>
 </body>
 
