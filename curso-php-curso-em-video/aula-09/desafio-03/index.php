@@ -76,13 +76,15 @@
 
         <p>
             <?php
-                $real = str_replace(",", ".", $_GET["numero"] ?? "");
-
+                $real = $_GET["numero"] ?? "";
                 if (is_numeric($real)) {
-                    $dolar = number_format($real / 5.07 , 3, ",", ".");
-                    echo "R$" . str_replace(".", ",", $real) . " equivale a US$$dolar";
+                    $cotacao = 5.07;
+                    $dolar = $real / $cotacao;
+                    $padrao = numfmt_create("pr_BR", NumberFormatter::CURRENCY);
+                    echo numfmt_format_currency($padrao, $real, "BRL") . " equivale a " . numfmt_format_currency($padrao, $dolar, "USD");
                 } else {
                     header("location: index.html");
+                    exit();
                 }
             ?>
         </p>
