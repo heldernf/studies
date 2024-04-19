@@ -1,13 +1,13 @@
 <?php
-    $dividendo = $_GET["dividendo"] ?? 0;
-    $divisor = $_GET["divisor"] ?? 0;
-    if (!is_numeric($dividendo) || !is_numeric($divisor)) {
+    if (! is_numeric($_GET["salario"] ?? 0)) {
         header("location: index.php");
-        exit();
     }
 
+    $salarioMin = 1412;
+    $salario = $_GET["salario"] ?? $salarioMin;
+    $salarioMinQuant = intdiv($salario, $salarioMin);
+    $salarioResto = $salario % $salarioMin;
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -76,6 +76,13 @@
             padding: .6rem 0 0 0;
         }
 
+        form p {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+        }
+
         form button {
             width: 80%;
             border: none;
@@ -90,68 +97,37 @@
         }
 
         div#resposta {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            justify-items: center;
-            align-items: center;
-            min-width: 60vw;
-            height: 13rem;
+            width: 60vw;
+            min-height: 3rem;
             background-color: #149;
             border-radius: .4rem;
-            padding: 2rem;
+            padding: 2rem;   
         }
 
         div#resposta p {
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 600;
             color: #fff;
             padding: 0 2rem;
-        }
-
-        div#resposta p:nth-child(2) {
-            width: 100%;
-            position: relative;
-        }
-
-        div#resposta p:nth-child(2)::before {
-            content: '';
-            width: 100%;
-            height: 100%;
-            border-left: .3rem solid white;
-            border-bottom: .3rem solid white;
-            position: absolute;
-            top: 0;
-            left: -.1rem;
-        }
-
-        div#resposta p:nth-child(4) {
-            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
+    <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
         <div>
-            <label for="dividendo">DIVIDENDO</label>
-            <input type="number" step="any" name="dividendo" id="dividendo" required>
+            <label for="salario">SALÁRIO</label>
+            <input type="number" step="any" name="salario" id="salario" required>
         </div>
-        <div>
-            <label for="divisor">DIVISOR</label>
-            <input type="number" step="any" name="divisor" id="divisor" required>
-        </div>
+        <p>SALÁRIO MÍNIMO: R$ <?php echo $salarioMin ?></p>
         <button type="submit">ENVIAR</button>
     </form>
     <div id="resposta">
-        <?php
-        if ($divisor != 0) {
-            echo "<p>$dividendo</p>";
-            echo "<p>$divisor</p>";
-            echo "<p>" . $dividendo % $divisor . "</p>";
-            echo "<p>" . intdiv($dividendo, $divisor) . "</p>";
-        }
-        ?>
+        <p>
+            <?php
+                echo "Quem recebe um salário de R$ " . number_format($salario, 2, ",", ".") . " ganha $salarioMinQuant salário mínimo + R$ " . number_format($salarioResto, 2, ",", '.');
+            ?>
+        </p>
     </div>
 </body>
 
