@@ -5,7 +5,9 @@
 
     $radicando = $_GET["radicando"];
     $rquadrada = $radicando ** (1/2);
+    $rquadradaArray = explode(".", $rquadrada);
     $rcubica = $radicando ** (1/3);
+    $rcubicaArray = explode(".", $rcubica);
 ?>
 
 <!DOCTYPE html>
@@ -116,8 +118,8 @@
     </form>
     <div id="resposta">
         <?php
-        echo "<p>Raiz quadrada: $rquadrada</p>";
-        echo "<p>Raiz cúbica: $rcubica</p>";
+        echo "<p>Raiz quadrada: " . number_format($rquadrada, strlen($rquadradaArray[1]), ",", ".") . "</p>";
+        echo "<p>Raiz cúbica: " . number_format($rcubica, strlen($rcubicaArray[1]), ",", ".") . "</p>";
         ?>
     </div>
 </body>
