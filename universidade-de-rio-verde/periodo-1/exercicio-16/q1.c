@@ -7,7 +7,7 @@ int main() {
     int jair = 0, carlos = 0, neves = 0, escolha = 0, totalVotos = 0;
     float nulo = 0.0, branco = 0.0;
     
-    printf("1 - Jair Rodrigues\n2 - Carlos Luz\n3 - Neves Rocha\n4 - Nulo\n5 - Branco\n\nEscolha a opÃ§Ã£o de acordo com o nÃºmero que prescede ela\n");
+    printf("1 - Jair Rodrigues\n2 - Carlos Luz\n3 - Neves Rocha\n4 - Nulo\n5 - Branco\n\nEscolha a opção de acordo com o número que prescede ela\n");
     do {
         scanf("%d", &escolha);
 
@@ -35,7 +35,7 @@ int main() {
         case 6:
             break;
         default:
-            printf("O voto acima é invalido\n");
+            printf("O voto acima é inválido\n");
             break;
         }
     } while (escolha != 6);
@@ -50,7 +50,7 @@ int main() {
         printf("O vencedor o Neves Rocha");
     }
     else {
-        printf("Empate, nÃ£o houve vencedor");
+        printf("Empate, não houve vencedor");
     }
 
     nulo = 100 * (nulo / totalVotos);
