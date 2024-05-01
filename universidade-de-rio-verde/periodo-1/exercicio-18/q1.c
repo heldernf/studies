@@ -11,7 +11,7 @@ int main() {
     scanf("%f", &massaInicial);
 
     massaFinal = massaInicial;
-    while (massaFinal > 0.5) {
+    while (massaFinal >= 0.5) {
         massaFinal /= 2;
         quantSegundos++;
     }
