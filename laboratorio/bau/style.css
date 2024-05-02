@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #080818;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+main>div {
+    height: 10rem;
+    position: relative;
+}
+
+main>div::after {
+    content: "1 pessoas";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 3%;
+    font-weight: 500;
+    font-size: 1rem;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(135deg, #eeba37, #be8f18);
+    padding: .2rem .5rem;
+    border-radius: 1rem;
+    border: .15rem solid #fff;
+    width: max-content;
+}
+
+main>div:nth-child(2)::after {
+    content: "2 pessoas";
+}
+
+main>div:nth-child(3)::after {
+    content: "3 pessoas";
+}
+
+main>div:nth-child(4)::after {
+    content: "4 pessoas";
+}
+
+main>div:nth-child(5)::after {
+    content: "5 pessoas";
+}
+
+main>div::before {
+    content: 'R$ 34,79';
+    position: absolute;
+    bottom: -23%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #05a12c;
+    padding: .3rem .5rem;
+    border-radius: 1rem;
+    color: #fff;
+    text-align: center;
+    width: 60%;
+}
+
+div img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
