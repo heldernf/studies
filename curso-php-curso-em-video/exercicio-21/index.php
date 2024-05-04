@@ -149,8 +149,7 @@
         const rangePorcento = document.getElementById("rangePorcento");
 
         function modPorcento() {
-            const rangeValue = range.value;
-            rangePorcento.innerText = `${rangeValue}%`;
+            rangePorcento.innerText = range.value + '%';
         }
         range.addEventListener('input', modPorcento);
         document.addEventListener('DOMContentLoaded', modPorcento);
