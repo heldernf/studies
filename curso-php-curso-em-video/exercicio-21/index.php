@@ -70,6 +70,10 @@
             padding: .6rem 0 0 0;
         }
 
+        input[type="range"] {
+            padding: 0;
+        }
+
         form button {
             width: 80%;
             border: none;
@@ -105,23 +109,52 @@
 </head>
 
 <body>
-    <form action="" method="get">
-        <h1></h1>
+    <?php
+    $preco = $_GET["preco"] ?? 0;
+    $porcento = $_GET["porcento"] ?? 50;
+    if (! is_numeric($preco) || ! is_numeric($porcento)) {
+        header("location: index.php");
+    }
+    ?>
+
+    <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
+        <h1>REJUSTE O PREÇO</h1>
 
         <div>
-            <label for="input1"></label>
-            <input type="number" step="any" name="input1" id="input1" required>
+            <label for="preco">PREÇO</label>
+            <input type="number" step="any" name="preco" id="preco" value="<?=$preco?>" required>
         </div>
         <div>
-            <label for="input2"></label>
-            <input type="number" step="any" name="input2" id="input2" required>
+            <label for="porcento">REAJUSTE</label>
+            <input type="range" name="porcento" id="porcento" value="<?=$porcento?>">
+            <span id="rangePorcento" style="color: #fff; font-size: 2rem; text-align: center; margin-top: .5rem; display: block;"></span>
         </div>
 
         <button type="submit">ENVIAR</button>
     </form>
 
     <div id="resposta">
+        <p>
+            <?php     
+            if ($preco > 0) {
+                $novoCusto = $preco * $porcento / 100 + $preco;
+                echo "Com um aumento de $porcento%, o produto agora custa R$" . number_format($novoCusto, 2, ",", ".");
+            }
+            ?>
+        </p>
     </div>
+
+    <script>
+        const range = document.getElementById("porcento");
+        const rangePorcento = document.getElementById("rangePorcento");
+
+        function modPorcento() {
+            const rangeValue = range.value;
+            rangePorcento.innerText = `${rangeValue}%`;
+        }
+        range.addEventListener('input', modPorcento);
+        document.addEventListener('DOMContentLoaded', modPorcento);
+    </script>
 </body>
 
 </html>
