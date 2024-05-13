@@ -4,7 +4,7 @@
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil");
 
-    int idade, totalLido;
+    int idade = -1, totalLido;
     float media = 0;
 
     printf("Digite uma idade e quando quiser parar digite 0\n");
