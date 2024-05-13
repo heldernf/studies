@@ -119,9 +119,24 @@
     if ($segundos >= 60) {
         $minutos = intdiv($segundos, 60);
         $segundos %= 60;
+        
         if ($minutos >= 60) {
             $horas = intdiv($minutos, 60);
             $minutos %= 60;
+
+            if ($horas >= 24) {
+                $dias = intdiv($horas, 24);
+                $horas %= 24;
+
+                if ($dias >= 7) {
+                    $semanas = intdiv($dias, 7);
+                    $dias %= 7;
+                } else {
+                    $semanas = 0;
+                }
+            } else {
+                $dias = 0;
+            }
         } else {
             $horas = 0;
         }
@@ -145,7 +160,7 @@
     <div id="resposta">
         <p>
             <?php
-                echo sprintf("%dh %dm %ds", $horas, $minutos, $segundos);
+                echo sprintf("%ds %dd %dh %dm %ds", $semanas, $dias, $horas, $minutos, $segundos);
             ?>
         </p>
     </div>
