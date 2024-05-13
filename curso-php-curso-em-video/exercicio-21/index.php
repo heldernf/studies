@@ -110,24 +110,33 @@
 
 <body>
     <?php
-    $preco = $_GET["preco"] ?? 0;
-    $porcento = $_GET["porcento"] ?? 50;
-    if (! is_numeric($preco) || ! is_numeric($porcento)) {
+    $segundos = $_GET["segundos"] ?? 0;
+
+    if (!is_numeric($segundos)) {
         header("location: index.php");
+    }
+
+    if ($segundos >= 60) {
+        $minutos = intdiv($segundos, 60);
+        $segundos %= 60;
+        if ($minutos >= 60) {
+            $horas = intdiv($minutos, 60);
+            $minutos %= 60;
+        } else {
+            $horas = 0;
+        }
+    } else {
+        $minutos = 0;
+        $horas = 0;
     }
     ?>
 
-    <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
-        <h1>REJUSTE O PREÇO</h1>
+    <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
+        <h1>CALCULE O TEMPO</h1>
 
         <div>
-            <label for="preco">PREÇO</label>
-            <input type="number" step="any" name="preco" id="preco" value="<?=$preco?>" required>
-        </div>
-        <div>
-            <label for="porcento">REAJUSTE</label>
-            <input type="range" name="porcento" id="porcento" value="<?=$porcento?>">
-            <span id="rangePorcento" style="color: #fff; font-size: 2rem; text-align: center; margin-top: .5rem; display: block;"></span>
+            <label for="segundos">SEGUNDOS</label>
+            <input type="number" step="1" name="segundos" id="segundos" value="<?=$_GET["segundos"] ?? 0?>" required>
         </div>
 
         <button type="submit">ENVIAR</button>
@@ -135,25 +144,11 @@
 
     <div id="resposta">
         <p>
-            <?php     
-            if ($preco > 0) {
-                $novoCusto = $preco * $porcento / 100 + $preco;
-                echo "Com um aumento de $porcento%, o produto agora custa R$" . number_format($novoCusto, 2, ",", ".");
-            }
+            <?php
+                echo sprintf("%dh %dm %ds", $horas, $minutos, $segundos);
             ?>
         </p>
     </div>
-
-    <script>
-        const range = document.getElementById("porcento");
-        const rangePorcento = document.getElementById("rangePorcento");
-
-        function modPorcento() {
-            rangePorcento.innerText = range.value + '%';
-        }
-        range.addEventListener('input', modPorcento);
-        document.addEventListener('DOMContentLoaded', modPorcento);
-    </script>
 </body>
 
 </html>
