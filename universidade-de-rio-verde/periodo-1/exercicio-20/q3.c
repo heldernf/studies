@@ -4,7 +4,7 @@
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil");
 
-    int numero, dentroIntervalo = 0, foraIntervalo;
+    int numero, dentroIntervalo = 0, foraIntervalo = 0;
 
     printf("Digite 10 números:\n");
     for (int i = 0; i < 10; i++) {
