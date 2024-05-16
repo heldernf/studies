@@ -109,12 +109,18 @@
 </head>
 
 <body>
-    <form action="" method="get">
-        <h1>CALCULE O TEMPO</h1>
+    <?php
+    $valor = $_GET["valor"] ?? 0;
+    if (!is_numeric($valor)) {
+        header("location: index.php");
+    }
+    ?>
+    <form action="<?= $_SERVER["PHP_SELF"] ?>" method="get">
+        <h1>FAÇA UM SAQUE</h1>
 
         <div>
-            <label for="segundos">SEGUNDOS</label>
-            <input type="number" step="1" name="segundos" id="segundos" value="<?=$_GET["segundos"] ?? 0?>" required>
+            <label for="valor">VALOR</label>
+            <input type="number" step="5" name="valor" id="valor" value="<?= $_GET["valor"] ?? 0 ?>" required>
         </div>
 
         <button type="submit">ENVIAR</button>
@@ -122,6 +128,23 @@
 
     <div id="resposta">
         <p>
+            <?php
+            $n100 = intdiv($valor, 100);
+            $valor %= 100;
+
+            $n50 = intdiv($valor, 50);
+            $valor %= 50;
+
+            $n10 = intdiv($valor, 10);
+            $valor %= 10;
+
+            $n5 = intdiv($valor, 5);
+
+            echo "NOTA DE 100 = $n100<br>";
+            echo "NOTA DE 50 = $n50<br>";
+            echo "NOTA DE 10 = $n10<br>";
+            echo "NOTA DE 5 = $n5";
+            ?>
         </p>
     </div>
 </body>
