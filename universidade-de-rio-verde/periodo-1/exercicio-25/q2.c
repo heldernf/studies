@@ -32,7 +32,7 @@ int main() {
         if (senhaLength < 8 || upper == false || lower == false || digito == false || caracterEspecial == false) {
             printf("\nA sua senha não possui:\n");
 
-            if (strlen(senha) < 8) {
+            if (senhaLength < 8) {
                 printf("O mínimo de 8 caracteres\n");
             }
 
