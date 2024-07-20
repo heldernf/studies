@@ -11,6 +11,6 @@ for (let ingrediente of ingredientesOrdenados) {
             <img src="img/${ingrediente.img}" alt="Foto do ">
             <p class="nome-ingrediente">${ingrediente.nome}</p>
         </div>
-    `;1
+    `;
     containerIngredientes.innerHTML += textoHTML
 }
