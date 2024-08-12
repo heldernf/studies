@@ -1,21 +1,28 @@
 #include <stdio.h>
-#include <locale.h>
 
 int main() {
-    setlocale(LC_ALL, "Portuguese_Brazil");
-
-    int numero[5];
-
-    printf("Informe 5 valores:\n");
-    for (int i = 0; i < 5; i++) {
-        scanf("%d", &numero[i]);
+    printf("For:\n");
+    for (int i = 1; i <= 10; i++) {
+        printf("%d\n", i);
     }
 
-    for (int i = 0; i < 5; i++) {
-        if (numero[i] < 5) {
-            printf("O número %d é menor que 5\n", numero[i]);
-        }
+    printf("---------------------\n");
+
+    int numero = 1;
+    printf("While:\n");
+    while (numero <= 10) {
+        printf("%d\n", numero);
+        numero++;
     }
+    numero = 1;
+        
+    printf("---------------------\n");
+
+    printf("Do-while:\n");
+    do {
+        printf("%d\n", numero);
+        numero++;
+    } while (numero <= 10);
 
     return 0;
 }

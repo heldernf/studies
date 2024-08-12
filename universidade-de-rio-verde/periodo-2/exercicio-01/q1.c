@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <locale.h>
 
-int main(){
+int main() {
     setlocale(LC_ALL, "Portuguese_Brazil");
 
-    float nota[5];
+    int numero;
 
-    for (int i = 0; i < 5; i++) {
-        printf("Informe a nota %d do aluno: ", i + 1);
-        scanf("%f", &nota[i]);
-    }
+    printf("Digite um número: ");
+    scanf("%d", &numero);
 
-    for (int i = 0; i < 5; i++) {
-        printf("Nota %d: %.2f\n", i + 1, nota[i]);
+    if (numero % 2 == 0) {
+        printf("O número %d é par\n", numero);
+    } else {
+        printf("O número %d é ímpar\n", numero);
     }
 
     return 0;

@@ -1,44 +1,18 @@
 #include <stdio.h>
 #include <locale.h>
 
-int main() {
+int main(){
     setlocale(LC_ALL, "Portuguese_Brazil");
 
-    int numero[20], numeroPar[20], numeroImpar[20], totalPar = 0, totalImpar = 0;
+    float nota[5];
 
-    printf("Informe 20 numeros:\n");
-
-    for (int i = 0; i < 3; i++) {
-        scanf("%d", &numero[i]);
-
-        if (numero[i] % 2 == 0) {
-            numeroPar[totalPar] = numero[i];
-            totalPar++;
-        }
-        else {
-            numeroImpar[totalImpar] = numero[i];
-            totalImpar++;
-        }
+    for (int i = 0; i < 5; i++) {
+        printf("Informe a nota %d do aluno: ", i + 1);
+        scanf("%f", &nota[i]);
     }
 
-    if (totalPar > 0) {
-        printf("\nOs números pares são:\n");
-        for (int i = 0; i < totalPar; i++) {
-            printf("%d\n", numeroPar[i]);
-        }
-    } else {
-        printf("Não foi informado nenhum número par");
-    }
-
-    printf("----------------------------\n");
-
-    if (totalImpar > 0) {
-        printf("Os números impares são:\n");
-        for (int i = 0; i < totalImpar; i++) {
-            printf("%d\n", numeroImpar[i]);
-        }
-    } else {
-        printf("Não foi informado nenhum número impar");
+    for (int i = 0; i < 5; i++) {
+        printf("Nota %d: %.2f\n", i + 1, nota[i]);
     }
 
     return 0;

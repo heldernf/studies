@@ -4,15 +4,36 @@
 int main() {
     setlocale(LC_ALL, "Portuguese_Brazil");
 
-    int numero[5];
+    int dia;
 
-    printf("Informe 5 números inteiros:\n");
+    printf("Digite um número de 1 a 7 para saber o dia da semana: ");
+    scanf("%d", &dia);
 
-    for (int i = 0; i < 5; i++) {
-        scanf("%d", &numero[i]);
+    switch (dia) {
+        case 1:
+            printf("Domingo");
+            break;
+        case 2:
+            printf("Segunda-feira");
+            break;
+        case 3:
+            printf("Terça-feira");
+            break;
+        case 4:
+            printf("Quarta-feira");
+            break;
+        case 5:
+            printf("Quinta-feira");
+            break;
+        case 6:
+            printf("Sexta-feira");
+            break;
+        case 7:
+            printf("Sábado");
+            break;
+        default:
+            printf("Número inválido.");
     }
-
-    printf("Primeiro número informado: %d\nÚltimo número informado:%d", numero[0], numero[4]);
 
     return 0;
 }

@@ -6,13 +6,16 @@ int main() {
 
     int numero[5];
 
-    printf("Informe 5 números inteiros:\n");
-
+    printf("Informe 5 valores:\n");
     for (int i = 0; i < 5; i++) {
         scanf("%d", &numero[i]);
     }
 
-    printf("Primeiro número informado: %d\nÚltimo número informado:%d", numero[0], numero[4]);
+    for (int i = 0; i < 5; i++) {
+        if (numero[i] < 5) {
+            printf("O número %d é menor que 5\n", numero[i]);
+        }
+    }
 
     return 0;
 }
