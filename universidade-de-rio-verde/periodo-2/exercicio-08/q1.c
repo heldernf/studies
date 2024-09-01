@@ -7,7 +7,7 @@ int main() {
     int vetor[tamanhoVetor - 1];
 
     for (int i = 0; i < tamanhoVetor; i++) {
-        printf("Informe o %dº valor:\n", i + 1);
+        printf("Informe o %dÂº valor:\n", i + 1);
         scanf("%d", &vetor[i]);
     }
     int maiorDoVetor = vetor[0];
@@ -32,7 +32,6 @@ int main() {
             indexMenor = i;
         }
 
-        // ENTENDER MELHOR O CÓDIGO DAQUI
         if (vetor[i] > media) {
             auxiliar = vetor[i] - media;
         } else {
@@ -43,8 +42,6 @@ int main() {
             indexMedia = i;
             soma = auxiliar;
         }
-        // ATÉ AQUI
-
     }
 
     if (vetor[0] != menorDoVetor) {
