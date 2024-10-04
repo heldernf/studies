@@ -12,9 +12,9 @@ int main() {
     for (int i = 1; i < arrayLength; i++) {
         for (int j = 0; j < arrayLength - 1; j++) {
             if (array[j] > array[j + 1]) {
-                int aux = array[j + 1];
+                int nextValueArray = array[j + 1];
                 array[j + 1] = array[j];
-                array[j] = aux;
+                array[j] = nextValueArray;
             }
         }
     }
