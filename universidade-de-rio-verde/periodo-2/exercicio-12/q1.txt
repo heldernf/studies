@@ -1,0 +1,5 @@
+O melhor cenário para o Bubble Sort ocorre quando o array já está ordenado ou quase
+ordenado, exigindo apenas uma passagem para verificar que não há mais trocas
+necessárias, resultando em uma complexidade de O(n). Já o pior cenário acontece
+quando o array está em ordem inversa, exigindo o número máximo de comparações e
+trocas em cada passagem, levando a uma complexidade de O(n²).
