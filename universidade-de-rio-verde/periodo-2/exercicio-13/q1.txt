@@ -1,0 +1,8 @@
+O Insertion Sort é um algoritmo que ordena inserindo cada elemento na posição correta à
+medida que percorre a lista. É simples de implementar, eficiente para listas pequenas ou
+quase ordenadas, e usa pouca memória extra. No entanto, é lento para listas grandes, com
+complexidade O(n²) no pior caso.
+
+Comparado ao Bubble Sort, o Insertion Sort é geralmente mais rápido, pois faz menos
+comparações e trocas. Ambos têm o mesmo desempenho em listas grandes, mas o Insertion
+Sort é mais eficiente em listas parcialmente ordenadas.
