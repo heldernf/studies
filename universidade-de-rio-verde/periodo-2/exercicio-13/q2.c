@@ -13,7 +13,6 @@ int main() {
         printf("%d ", array[i]);
     }
 
-    printf("\n\nArray ordenado:\n");
     for (int i = 1; i < 4; i++) {
         int currentElement = array[i];
         int j = i - 1;
@@ -25,6 +24,7 @@ int main() {
         array[j + 1] = currentElement;
     }
     
+    printf("\n\nArray ordenado:\n");
     for (int i = 0; i < 4; i++) {
         printf("%d ", array[i]);
     }
