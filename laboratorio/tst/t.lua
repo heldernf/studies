@@ -3,6 +3,7 @@ local Accoundt = {
     history = {}
 }
 
-local function Account:new(o)
+local Account
+function Account:new(o)
     local obj = o or {}
 end
