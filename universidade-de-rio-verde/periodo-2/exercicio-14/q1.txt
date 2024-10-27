@@ -1,0 +1,4 @@
+(12*11)/2
+132/2 == 66
+
+66 comparações serão realizadas
