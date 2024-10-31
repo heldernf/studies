@@ -12,7 +12,7 @@ int main() {
         array[i] = rand() % 50;
         printf("%d ", array[i]);
     }
-    
+
     printf("\n\nArray organizado:\n");
     int swap, changes = 0;
     for (int i = 0; i < arrayLength - 1; i++) {
