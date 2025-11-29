@@ -8,8 +8,6 @@ function App() {
   const [tasks, setTasks] = useState({})
 
   function onAddNewTask(newTask) {
-    console.log(newTask.title.length, newTask.title) // 12 (conta todos os caracteres, inclusive espaços)
-    console.log(newTask.title.trim().length, newTask.title.trim())
     if (newTask.title.trim() || newTask.description.trim()) {
       const taskId = ++highestTaskId
 
@@ -42,7 +40,6 @@ function App() {
     setTasks((prevTasks) => {
       if (taskId == highestTaskId) {
         const keys = Object.keys(prevTasks)
-        console.log(taskId, highestTaskId, Number(keys[keys.length - 1]), keys)
         highestTaskId = Number(keys[keys.length - 2]) || 0
       }
 
