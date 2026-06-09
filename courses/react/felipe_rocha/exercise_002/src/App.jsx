@@ -20,17 +20,12 @@ function syncTasksFromAPI(setTasks) {
     setTasks((prevTasks) => {
       const existingIDs = prevTasks.map((task) => task.id)
 
-      let newTasks = apiTasks.filter(
-        (apiTask) => !existingIDs.includes(apiTask.id),
-      )
-
-      if (newTasks.length === 0) return prevTasks
-
-      // eslint-disable-next-line no-unused-vars
-      newTasks = newTasks.map(({ userId, ...newTask }) => {
-        newTask.description = 'Lorem ipsum.'
-        return newTask
-      })
+      const newTasks = apiTasks
+        .filter((apiTask) => !existingIDs.includes(apiTask.id))
+        .map(({ userId: _userId, ...newTask }) => {
+          newTask.description = 'Lorem ipsum.'
+          return newTask
+        })
 
       return [...prevTasks, ...newTasks]
     })
