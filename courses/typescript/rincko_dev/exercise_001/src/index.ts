@@ -1,3 +1,5 @@
+// Type Annotations
+
 const myName: string = 'Helder Neto'
 const myAge: number = 20
 const isMale: boolean = true
