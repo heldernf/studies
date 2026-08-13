@@ -1,3 +1,5 @@
+// Interface
+
 declare global {
   interface Console {
     sayHello(): void
