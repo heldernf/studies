@@ -32,35 +32,35 @@ abstract class Entity {
     this.damage = this.defaultData.damage
   }
 
-  public getName() {
+  public getName(): string {
     return this.name
   }
 
-  public getEntityType() {
+  public getEntityType(): string {
     return this.entityType
   }
 
-  public getEntityLabel() {
+  public getEntityLabel(): string {
     return this.defaultData.label
   }
 
-  public getHealth() {
+  public getHealth(): number {
     return this.health
   }
 
-  public getDamage() {
+  public getDamage(): number {
     return this.damage
   }
 
-  public isDead() {
+  public isDead(): boolean {
     return this.health === 0
   }
 
-  private die() {
+  private die(): void {
     console.log(`${this.name} morreu!`)
   }
 
-  private setHealth(value: number) {
+  private setHealth(value: number): boolean {
     const newHealth = Math.max(0, Math.min(value, this.defaultData.health))
 
     if (newHealth === this.health) return false
@@ -72,11 +72,11 @@ abstract class Entity {
     return true
   }
 
-  public updateHealth(amount: number) {
+  public updateHealth(amount: number): boolean {
     return this.setHealth(this.health + amount)
   }
 
-  public attack(entity: Entity) {
+  public attack(entity: Entity): void {
     if (this.isDead() || entity.isDead()) return
 
     entity.updateHealth(-this.damage)
