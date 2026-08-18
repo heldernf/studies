@@ -17,7 +17,7 @@ const ENTITIES_DEFAULT_DATA: Record<EntityType, EntityDefaultData> = {
   dragon: { label: 'Dragão', health: 750, damage: 75 },
 }
 
-class Entity {
+abstract class Entity {
   private readonly name: string
   private readonly entityType: EntityType
   private readonly defaultData: EntityDefaultData
@@ -116,8 +116,8 @@ class Dwarf extends Entity {
   }
 }
 
-const heldernf = new Human('Helder')
-const niltoncosj = new Dwarf('Nilton')
+const heldernf = new Human('Helder Neto')
+const niltoncosj = new Dwarf('Nilton Cesar')
 
 heldernf.attack(niltoncosj)
 niltoncosj.attack(heldernf)
