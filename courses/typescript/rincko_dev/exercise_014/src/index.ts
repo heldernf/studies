@@ -1,4 +1,4 @@
-// Anotation, as e satisfies
+// Annotation, as and satisfies
 
 interface FooterData {
   text: string
