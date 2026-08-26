@@ -1,5 +1,5 @@
 {
-  "name": "exercise_001",
+  "name": "typescript",
   "main": "build/index.js",
   "scripts": {
     "build": "tsc",
