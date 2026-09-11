@@ -1,4 +1,4 @@
-// Conditional types
+// Conditional Types
 
 const [conditionalTrue, conditionalFalse] = [
   'É uma string',

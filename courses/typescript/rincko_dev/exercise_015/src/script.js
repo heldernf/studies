@@ -1,4 +1,4 @@
-// Typeof
+// typeof
 
 function main(arg) {
   if (typeof arg === 'string') return console.log(arg.toUpperCase())

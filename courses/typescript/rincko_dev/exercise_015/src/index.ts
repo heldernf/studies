@@ -1,4 +1,4 @@
-// Typeof
+// typeof
 
 const username: string = 'Helder'
 const nickname: typeof username = 'heldernf'

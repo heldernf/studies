@@ -1,4 +1,4 @@
-// Records
+// Record
 
 interface SettingsData<T> {
   name: T

@@ -1,4 +1,4 @@
-// Keyof
+// keyof
 
 interface Person {
   name: string

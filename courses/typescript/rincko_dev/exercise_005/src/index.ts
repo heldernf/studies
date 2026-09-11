@@ -1,4 +1,4 @@
-// Enums
+// enum
 
 // 1 North
 // 2 South

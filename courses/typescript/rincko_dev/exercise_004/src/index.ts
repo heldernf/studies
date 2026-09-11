@@ -1,4 +1,4 @@
-// Tuplas
+// Tuples
 
 type NameList = string[]
 
