@@ -63,3 +63,9 @@ const newPlayer2 = execute(player, ['nick', 'shield'])
 
 console.log('New Player:', newPlayer)
 console.log('New Player2:', newPlayer2)
+
+newPlayer.nick
+// newPlayer.shield
+
+newPlayer2.nick
+newPlayer2.shield
