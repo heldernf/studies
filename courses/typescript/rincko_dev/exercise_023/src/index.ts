@@ -4,7 +4,7 @@ interface User {
   id: string
   name: string
   email: string
-  isAdmin: string
+  isAdmin: boolean
 }
 
 type PartialUser = Partial<User>
