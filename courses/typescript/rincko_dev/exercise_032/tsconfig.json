@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "lib": ["ESNext"],
+
+    "target": "esnext",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+
+    "rootDir": "src",
+    "outDir": "build",
+
+    "types": ["node"],
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmitOnError": true,
+
+    "verbatimModuleSyntax": true,
+
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/math/*": ["./src/functions/utils/math/*"],
+      "@/functions/*": ["./src/commands/public/functions/*"],
+      "@/math": ["./src/functions/utils/math/index.js"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

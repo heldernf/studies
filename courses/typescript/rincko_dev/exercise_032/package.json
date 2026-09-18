@@ -1,0 +1,16 @@
+{
+  "name": "typescript",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc && tsc-alias",
+    "dev": "tsx src/index.ts",
+    "start": "node ."
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsc-alias": "^1.9.5",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
