@@ -1,0 +1,9 @@
+import { defineRoutes } from '@/functions/utils.js'
+
+export default defineRoutes((app) => {
+  app.get('/', (_, reply) => {
+    reply.status(200).send({
+      message: 'Hello World.',
+    })
+  })
+})

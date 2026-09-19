@@ -1,0 +1,31 @@
+{
+  "name": "API Fastify Project",
+  "description": "A API project using Fastify.",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node --env-file=.env .",
+    "build": "tsc -p tsconfig.prod.json && tsc-alias",
+    "dev": "tsx --env-file=.env src/index.ts",
+    "watch": "tsx --env-file=.env --watch src/index.ts"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^26.6.1",
+    "tsc-alias": "^1.9.5",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  },
+  "dependencies": {
+    "@fastify/autoload": "^6.5.0",
+    "@fastify/cors": "^11.3.0",
+    "better-sqlite3": "^13.0.3",
+    "chalk": "^6.0.0",
+    "consola": "^3.4.2",
+    "fastify": "^5.12.5",
+    "quick.db": "^9.1.7",
+    "zod": "^4.6.5"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "compilerOptions": {
+    // Structure
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Build
+    "sourceMap": true,
+    "noEmitOnError": true,
+
+    // JS & Node
+    "target": "es2025",
+    "lib": ["ES2025"],
+    "types": ["node"],
+
+    // Module
+    "module": "nodenext",
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+
+    // Type Checking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Code Quality
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedSideEffectImports": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Peformance
+    "skipLibCheck": true,
+
+    "paths": {
+      "@/settings/*": ["./src/settings/*"],
+      "@/functions/*": ["./src/functions/*"],
+      "@/database": ["./src/database/index.js"],
+      "@/schemas/*": ["./src/database/schemas/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/controllers/*": ["./src/controllers/*"],
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
